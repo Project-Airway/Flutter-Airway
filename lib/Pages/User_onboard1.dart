@@ -1,3 +1,4 @@
+import 'package:airway_flutter/Pages/User_onboard2.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 
@@ -26,7 +27,7 @@ class user_onboard1 extends StatelessWidget {
                     // )
                   ],
                 ),
-                SizedBox(height: 120),
+                SizedBox(height: 70),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -38,7 +39,7 @@ class user_onboard1 extends StatelessWidget {
                           fit: BoxFit.fill
                         )
                       ),
-                      height: 400,
+                      height: 350,
                       width: 350,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,9 +64,33 @@ class user_onboard1 extends StatelessWidget {
                           )
                         ],
                       ),
-                    )
+                    ),
                   ],
-                )
+
+                ),
+
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      shape: CircleBorder(),
+                      primary: Color.fromRGBO(249, 237, 105, 1)
+                  ),
+                  child: Container(
+                    width: 100,
+                    height: 70,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Image(
+                      image: AssetImage('assets/Btn.png'),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const user_onboard2()),
+                    );
+                  },
+                ),
+
 
               ],
             ),
