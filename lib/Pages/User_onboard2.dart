@@ -1,3 +1,4 @@
+import 'package:airway_flutter/Pages/User_onboard3.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 
@@ -26,7 +27,7 @@ class user_onboard2 extends StatelessWidget {
                   // )
                 ],
               ),
-              SizedBox(height: 150),
+              SizedBox(height: 70),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,8 +66,72 @@ class user_onboard2 extends StatelessWidget {
                     ),
                   )
                 ],
-              )
+              ),
 
+
+
+              // TextButton.icon(onPressed: (){},
+              //     style: TextButton.styleFrom(
+              //       padding: const EdgeInsets.fromLTRB(75, 15, 75, 15),
+              //       backgroundColor: Color.fromRGBO(249, 237, 105, 1),
+              //       primary: Colors.black
+              //     ),
+              //     icon: Image(image: AssetImage('assets/Vector.png')),
+              //     label: Text('Sign in with Google'),
+              //
+              // )
+
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(249, 237, 105, 1), //background color of button
+                      side: BorderSide(width:1, color:Colors.black12), //border width and color
+                      elevation: 1, //elevation of button
+                      shape: RoundedRectangleBorder( //to set border radius to button
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      padding: EdgeInsets.fromLTRB(75, 15, 75, 15) //content padding inside button
+                  ),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => user_onboard3()),
+                    );
+                  },
+                 child: Text('Login with Google',
+                    style: TextStyle(color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.w600,
+                 ),
+
+                ),
+              ),
+              SizedBox(height: 10),
+              Text('Or'),
+
+              SizedBox(height: 10),
+              ElevatedButton(onPressed: (){
+
+              },
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(249, 237, 105, 1),
+                      side: BorderSide(width:1, color:Colors.black12), //border width and color
+                      elevation: 1,
+                      shape: RoundedRectangleBorder( //to set border radius to button
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                    padding: EdgeInsets.fromLTRB(80, 15, 80, 15)
+                  ),
+
+                  child: Text('Sign in as guest',
+                    style: TextStyle(color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+
+                  ),
+              ),
             ],
           ),
 
