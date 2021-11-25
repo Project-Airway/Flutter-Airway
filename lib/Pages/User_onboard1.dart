@@ -21,13 +21,14 @@ class user_onboard1 extends StatelessWidget {
                   children: [
                     SizedBox(width: 30),
                     Image.asset('assets/logo.png'),
-                    SizedBox(width: 10),
+                    //SizedBox(width: 10),
+                    Image.asset('assets/user_img1.png',cacheHeight: 300,cacheWidth: 250,),
                     // ClipRect(
                     //   child: Image.asset('assets/user_img1.png'),
                     // )
                   ],
                 ),
-                SizedBox(height: 70),
+                //SizedBox(height: 70),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
