@@ -9,6 +9,7 @@ class user_onboard1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Container(
             decoration: new BoxDecoration(
               color: Color.fromRGBO(245, 209, 0, 1),

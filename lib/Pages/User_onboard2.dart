@@ -9,25 +9,27 @@ class user_onboard2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           decoration: new BoxDecoration(
             color: Color.fromRGBO(245, 209, 0, 1),
           ),
           child: Column(
             children: [
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(width: 30),
                   Image.asset('assets/logo.png'),
-                  SizedBox(width: 10),
+                  //SizedBox(width: 10),
+                  Image.asset('assets/img1.png',cacheHeight: 330,cacheWidth:270 ,),
                   // ClipRect(
                   //   child: Image.asset('assets/user_img1.png'),
                   // )
                 ],
               ),
-              SizedBox(height: 70),
+              //SizedBox(height: 10),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
