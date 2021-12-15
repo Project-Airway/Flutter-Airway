@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_aditya/pages/info.dart';
+import 'package:airway_flutter/pages/main_pages/info.dart';
 
 
 

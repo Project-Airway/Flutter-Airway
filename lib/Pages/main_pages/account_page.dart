@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:airway_flutter/components/bottom_navbar.dart';
 
 class Account extends StatefulWidget {
   const Account({Key? key}) : super(key: key);
@@ -30,8 +31,9 @@ class _AccountState extends State<Account> {
                 SizedBox(height: 15),
                 Text('Hello!',
                 style: TextStyle(
+                  fontFamily: 'poppins',
+                  fontWeight: FontWeight.w600,
                 fontSize:34,
-                fontWeight: FontWeight.bold,
                 ),
                 ),
                 SizedBox(height: 20,),
@@ -42,14 +44,15 @@ class _AccountState extends State<Account> {
                 Text(
                   '$name',
                   style: TextStyle(
+                    fontFamily: 'poppins',
+                    fontWeight: FontWeight.w600,
                     fontSize: 24,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   '$email',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 20,fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
                     color: Colors.grey[600],
                   ),
@@ -57,29 +60,50 @@ class _AccountState extends State<Account> {
                 SizedBox(height: 40),
                 Card(
                   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(15,0,20,0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          TextButton.icon(onPressed: () {}, icon: Icon(Icons.edit,color: Colors.grey[600],
+                              size: 25.0,), label: Text('\t\t\t\t\t''Edit Info',
+                              style: TextStyle(
+                              fontSize: 20,fontFamily: 'poppins',
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey[800],
+                            ),
+                          ),),
+                          Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Icon(Icons.arrow_forward_ios_rounded),
+                            ),
+                            elevation: 2,
+                            shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
+                            color: Color.fromRGBO(255, 255, 255, 0.9),
+
+                          ),
+                        ],
+                      ),
+                    ),
+                    ),
+                SizedBox(height: 10),
+                Card(
+                  margin: EdgeInsets.fromLTRB(25, 0, 25,0),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(15,0,20,0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        FlatButton.icon(onPressed: (){}, icon: Icon(Icons.two_k,
-                        color: Colors.grey[600],
-                        ),
-                            label:Text('S',
-                            style:TextStyle(
-                                color:Colors.white,
-                            ),
-                  )
-                        ),
-                        Text(' Edit Info',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800],
-                        ),
-                        ),
-                        // SizedBox(width: 118+25,),
-                        // ElevatedButton(onPressed: (){},
-                        //     child: Icon( Icons.arrow_forward_ios_rounded,),
-                        // ),
+                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.ac_unit_outlined,color: Colors.grey[600],
+                          size: 25.0,), label: Text('\t\t\t\t\t''Travel History ',
+                          style: TextStyle(
+                            fontSize: 20,fontFamily: 'poppins',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[800],
+                          ),
+                        ),),
+
                         Card(
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
@@ -92,81 +116,36 @@ class _AccountState extends State<Account> {
                         ),
                       ],
                     ),
-                    ),
-                SizedBox(height: 10),
-                Card(
-                  margin: EdgeInsets.fromLTRB(25, 0, 25,0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      FlatButton.icon(onPressed: (){}, icon: Icon(Icons.ac_unit_outlined,
-                        color: Colors.grey[600],
-                      ),
-                          label:Text('T',
-                            style:TextStyle(
-                              color:Colors.white,
-                            ),
-                          ),
-                      ),
-                      Text('Transaction History',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800],
-                        ),
-                      ),
-                      // SizedBox(width: 25-3+25,),
-                      // ElevatedButton(onPressed: (){},
-                      //   child: Icon(Icons.arrow_forward_ios_rounded,),
-                      // ),
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Icon(Icons.arrow_forward_ios_rounded),
-                        ),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
-
-                      ),
-                    ],
                   ),
                 ),
                 SizedBox(height: 10),
                 Card(
                   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      FlatButton.icon(onPressed: (){}, icon: Icon(Icons.three_p_sharp,
-                        color: Colors.grey[600],
-                      ),
-                        label:Text('G',
-                          style:TextStyle(
-                            color:Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(15,0,20,0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.three_p_sharp,color: Colors.grey[600],
+                          size: 25.0,), label: Text('\t\t\t\t\t''Get Help ',
+                          style: TextStyle(
+                            fontSize: 20,fontFamily: 'poppins',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey[800],
                           ),
-                        ),
-                      ),
-                      Text('Get Help',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[800],
-                        ),
-                      ),
-                      // SizedBox(width: 120+25),
-                      //
-                      Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Icon(Icons.arrow_forward_ios_rounded),
-                        ),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
+                        ),),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Icon(Icons.arrow_forward_ios_rounded),
+                          ),
+                          elevation: 2,
+                          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
+                          color: Color.fromRGBO(255, 255, 255, 0.9),
 
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 10,),
@@ -176,74 +155,58 @@ class _AccountState extends State<Account> {
                       'Log Out',
                       style: TextStyle(
                         color: Colors.pinkAccent,
-                        fontSize: 16+8,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 16+8,fontFamily: 'poppins',
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     onPressed: (){},
                   ),
                 ),
                 SizedBox(height: 20,),
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text('Privacy  Policy  ',
-                    style: TextStyle(
-                    color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    ),
-                    Icon(Icons.access_time_filled_rounded,
-                    color: Colors.grey[1000],
-                    ),
-                    Text('  Terms & Conditions',
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(60,0,20,0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('Privacy  Policy  ',
                       style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                        fontSize: 13,fontFamily: 'poppins',
+                        fontWeight: FontWeight.w500,
                       ),
-                    ),
-                  ],
+                      ),
+                      Icon(Icons.info_outline,
+                      color: Colors.grey[1000],
+                      ),
+                      Text('  Terms & Conditions',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13,fontFamily: 'poppins',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+                SizedBox(height: 10,),
+
                 Center(
                   child: Text('© Airway 2020',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14,fontFamily: 'poppins',
+                    fontWeight: FontWeight.w500,
                     color: Colors.grey[600],
                   ),
                   ),
                 ),
+
               ],
             ),
       ),
         ),
     ),
-      bottomNavigationBar:BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home,
-              color: Colors.black,),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pages,
-              color: Colors.black,),
-            label: 'Option2',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit_rounded,
-              color: Colors.black,),
-            label: 'Option3',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_rounded,
-              color: Colors.black,),
-            label: 'User Account',
-          ),
-        ],
-      ),
+      bottomNavigationBar:bottom_bar()
     );
   }
 }
