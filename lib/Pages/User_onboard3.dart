@@ -120,18 +120,18 @@ class user_onboard3 extends StatelessWidget {
           ),
           child: Column(
             children: [
-              // SizedBox(height: 30),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     SizedBox(width: 30),
-              //     Image.asset('assets/logo.png'),
-              //     SizedBox(width: 10),
-              //     // ClipRect(
-              //     //   child: Image.asset('assets/user_img1.png'),
-              //     // )
-              //   ],
-              // ),
+              SizedBox(height: 30),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(width: 30),
+                  Image.asset('assets/logo.png'),
+                  SizedBox(width: 10),
+                  // ClipRect(
+                  //   child: Image.asset('assets/user_img1.png'),
+                  // )
+                ],
+              ),
               SizedBox(height: 1),
 
               Row(
