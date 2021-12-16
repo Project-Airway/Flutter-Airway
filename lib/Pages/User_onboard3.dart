@@ -1,5 +1,36 @@
+import 'package:airway_flutter/Pages/Edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
+
+class NameFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Name is required';
+    }
+    return '';
+  }
+}
+
+class EmailFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Email is required';
+    }
+    return '';
+  }
+}
+
+class PhoneFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Phone number is required';
+    }
+    if(value.length<10){
+      return 'Invalid Phone number';
+    }
+    return '';
+  }
+}
 
 class user_onboard3 extends StatelessWidget {
 
@@ -8,6 +39,8 @@ class user_onboard3 extends StatelessWidget {
   String phone_no = '';
 
   final _formKey = GlobalKey<FormState>();
+
+
   Widget _buildNameField(){
     return Padding(
       padding: const EdgeInsets.fromLTRB(40.0,20,40,0),
@@ -22,6 +55,7 @@ class user_onboard3 extends StatelessWidget {
         validator: (value){
           if(value == null || value.isEmpty){}
           return 'Name is required';
+          // EmailFieldValidator.validator;
         },
         onSaved: (value){
           name = value!;
@@ -43,6 +77,7 @@ class user_onboard3 extends StatelessWidget {
         validator: (value){
           if(value == null || value.isEmpty){}
           return 'Name is required';
+          // EmailFieldValidator.validator;
         },
         onSaved: (value){
           email = value!;
@@ -64,6 +99,8 @@ class user_onboard3 extends StatelessWidget {
         validator: (value){
           if(value == null || value.isEmpty){}
           return 'Name is required';
+
+        //  PhoneFieldValidator.validator;
         },
         onSaved: (value){
           phone_no = value!;
@@ -83,18 +120,18 @@ class user_onboard3 extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(height: 30),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(width: 30),
-                  Image.asset('assets/logo.png'),
-                  SizedBox(width: 10),
-                  // ClipRect(
-                  //   child: Image.asset('assets/user_img1.png'),
-                  // )
-                ],
-              ),
+              // SizedBox(height: 30),
+              // Row(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     SizedBox(width: 30),
+              //     Image.asset('assets/logo.png'),
+              //     SizedBox(width: 10),
+              //     // ClipRect(
+              //     //   child: Image.asset('assets/user_img1.png'),
+              //     // )
+              //   ],
+              // ),
               SizedBox(height: 1),
 
               Row(
@@ -159,9 +196,8 @@ class user_onboard3 extends StatelessWidget {
                                     ),
                                     color: Color.fromRGBO(245, 209, 0, 1),
 
-                                    onPressed: () {
-
-                                })
+                                    onPressed: (){},
+                                )
                               ],
                             ))
                           ],
