@@ -12,7 +12,7 @@ class Editprofile extends StatefulWidget {
 }
 
 class _EditprofileState extends State<Editprofile> {
-  late PickedFile _imageFile;
+  PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
@@ -123,10 +123,9 @@ class _EditprofileState extends State<Editprofile> {
         children: [
           CircleAvatar(
               radius: 60.0,
-              backgroundImage:AssetImage('assets/123.jpg')
-            //backgroundImage:_imageFile==null?
-            //AssetImage('assets/123.jpg'):
-            //FileImage(File(_imageFile.path))
+              backgroundImage:_imageFile==null?
+            AssetImage('assets/123.jpg'):
+            FileImage(File(_imageFile!.path))as ImageProvider
           ),
           Positioned(
             bottom: 20.0,
@@ -196,7 +195,7 @@ class _EditprofileState extends State<Editprofile> {
       source:source,
     );
     setState(() {
-      _imageFile=pickedFile!;
+      _imageFile=pickedFile;
     });
   }
   Widget nameTextField()
