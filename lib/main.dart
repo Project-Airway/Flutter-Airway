@@ -7,10 +7,11 @@ import 'package:airway_flutter/Pages/User_onboard3.dart';
 import 'package:airway_flutter/Pages/Edit_profile.dart';
 import 'package:airway_flutter/pages/main_pages/account_page.dart';
 import 'package:airway_flutter/pages/main_pages/points_history.dart';
+import 'package:airway_flutter/pages/faq/faq.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'user_account',
+  initialRoute: 'faq',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
@@ -19,7 +20,8 @@ void main() => runApp(MaterialApp(
     'user_onboardmain':(context) => user_onboardmain(),
     'user_account' : (context) => Account(),
     'points_history':(context) => Points(),
-    'edit_account':(context) => Editprofile()
+    'edit_account':(context) => Editprofile(),
+    'faq':(context) => FAQ()
 
 
 
