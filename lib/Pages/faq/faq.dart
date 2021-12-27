@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:airway_flutter/pages/faq/bottom.dart';
+import 'package:airway_flutter/Pages/bottom.dart';
 import 'package:expansion_card/expansion_card.dart';
 void main()=>runApp(MaterialApp(
     home:FAQ()
@@ -40,13 +40,13 @@ class _FAQState extends State<FAQ> {
                   SizedBox(height: 20,),
                   expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
                   SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
+                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','Why was I not refunded my full amount when I cancelled my ticket?','The cancellation policy of the company states that cancellation of tickets has to occur at least 24 hours before the departure otherwise amount of money is deducted.'),
                   SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
+                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','When can I redeem the points I have accumulated?','Users can redeem the accumulated points during the checkout and can avail discounts!.'),
                   SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
+                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','Are other services like meal coupons , taxi services etc. provided by the company?','We do not provide any other services except that of booking of flights but stay tuned there is a lot yet to come ;) '),
                   SizedBox(height: 10,),
-                  Text('Have something else on mind ?\ncontust us on',
+                  Text('Have something else on your mind ?\nContact us on',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600,
