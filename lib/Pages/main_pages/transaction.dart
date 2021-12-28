@@ -132,6 +132,16 @@ class _TransactionsState extends State<Transactions> {
               ),
             ),
           ),
+          ElevatedButton(onPressed: (){
+            Navigator.pushNamed(context, "reasons");
+          }, child: Text(
+            "Cancel",
+            style: TextStyle(
+              color: Colors.red,
+              fontFamily: "poppins",
+              fontWeight: FontWeight.bold,
+            ),
+          )),
         ],
       ),
     );

@@ -9,6 +9,7 @@ import 'package:airway_flutter/pages/main_pages/account_page.dart';
 import 'package:airway_flutter/pages/main_pages/points_history.dart';
 import 'package:airway_flutter/pages/faq/faq.dart';
 import 'package:airway_flutter/Pages/main_pages/transaction.dart';
+import 'package:airway_flutter/Pages/Reasons.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -23,7 +24,8 @@ void main() => runApp(MaterialApp(
     'points_history':(context) => Points(),
     'edit_account':(context) => Editprofile(),
     'faq':(context) => FAQ(),
-    'transactions':(context)=>Transactions()
+    'transactions':(context)=>Transactions(),
+    'reasons':(context)=>Reasons()
   },
 ));
 
