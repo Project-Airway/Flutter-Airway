@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:airway_flutter/Pages/User_onboard1.dart';
 import 'package:airway_flutter/Pages/User_onboard2.dart';
+import 'package:airway_flutter/Pages/onboard_3.dart';
 import 'package:airway_flutter/Pages/user_onboardmain.dart';
 import 'package:airway_flutter/Pages/User_onboard3.dart';
 import 'package:airway_flutter/Pages/Edit_profile.dart';
@@ -15,12 +16,13 @@ import 'package:airway_flutter/Pages/main_pages/booking_confirm.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'main_booking',
+  initialRoute: 'onboard3',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
     'user_onboard2':(context) => user_onboard2(),
     'user_onboard3':(context) => user_onboard3(),
+    'onboard3':(context) => onboard_3(),
     'user_onboardmain':(context) => user_onboardmain(),
     'user_account' : (context) => Account(),
     'points_history':(context) => Points(),
