@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.4+4
   expansion_card: ^0.1.0
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
