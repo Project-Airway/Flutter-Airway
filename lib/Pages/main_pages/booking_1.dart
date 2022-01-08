@@ -11,38 +11,40 @@ class main_booking extends StatefulWidget {
 class _main_bookingState extends State<main_booking> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bg-common.jpeg'),
-            fit: BoxFit.fitWidth,
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/bg-common.jpeg'),
+              fit: BoxFit.fitWidth,
+            ),
+
           ),
+          width: double.infinity,
+          height: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(40,20,20,20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset('assets/logo.png'),
+                Text('Hey Adi,\nWhere to next ?',style: TextStyle(
+                  fontSize: 36,
+                  fontFamily: 'poppins',
+                  fontWeight: FontWeight.w700,
+                ),),
 
-        ),
-        width: double.infinity,
-        height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(40,20,20,20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset('assets/logo.png'),
-              Text('Hey Adi,\nWhere to next ?',style: TextStyle(
-                fontSize: 36,
-                fontFamily: 'poppins',
-                fontWeight: FontWeight.w700,
-              ),),
-
-              booking_form(),
+                booking_form(),
 
 
-            ],
+              ],
+            ),
           ),
         ),
+        // bottomNavigationBar: bottom_bar(),
       ),
-      // bottomNavigationBar: bottom_bar(),
     );
   }
 }
@@ -118,7 +120,7 @@ class _booking_formState extends State<booking_form> {
             ),
           ),
 
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
 
           Text('Enter your destination',style: TextStyle(
             fontFamily: 'poppins',
@@ -148,7 +150,7 @@ class _booking_formState extends State<booking_form> {
               ),
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
 
           Text('Enter date',style: TextStyle(
             fontFamily: 'poppins',
@@ -205,7 +207,7 @@ class _booking_formState extends State<booking_form> {
                           borderRadius: BorderRadius.circular(15)),
                       color: Color.fromRGBO(229, 220, 53, 1.0),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                         child: Text('Confirm', style: TextStyle(
                             fontFamily: 'montserrat',
                             fontWeight: FontWeight.w600,

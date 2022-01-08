@@ -15,6 +15,8 @@ class bottom_bar extends StatefulWidget {
 class _bottom_barState extends State<bottom_bar> {
 
   int currentIndex = 0;
+  PageController pageController = PageController();
+
   final List children = [
     main_booking(),
     Points(),
@@ -27,6 +29,7 @@ class _bottom_barState extends State<bottom_bar> {
     setState(() {
       currentIndex = index;
     });
+    // pageController.jumpToPage(index);
   }
 
   @override
