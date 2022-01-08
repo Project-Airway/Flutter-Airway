@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:airway_flutter/components/bottom_navbar.dart';
 
 class main_booking extends StatefulWidget {
   const main_booking({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class _main_bookingState extends State<main_booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -40,6 +42,7 @@ class _main_bookingState extends State<main_booking> {
           ),
         ),
       ),
+      // bottomNavigationBar: bottom_bar(),
     );
   }
 }

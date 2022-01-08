@@ -14,10 +14,11 @@ import 'package:airway_flutter/Pages/Reasons.dart';
 import 'package:airway_flutter/Pages/main_pages/booking_1.dart';
 import 'package:airway_flutter/Pages/main_pages/search_results.dart';
 import 'package:airway_flutter/Pages/main_pages/booking_confirm.dart';
+import 'package:airway_flutter/components/bottom_navbar.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'login',
+  initialRoute: 'bottom_bar',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
@@ -35,6 +36,7 @@ void main() => runApp(MaterialApp(
     'main_booking':(context)=>main_booking(),
     'results':(context)=>results(),
     'booking_confirm':(context)=>confirm_booking(),
+    'bottom_bar':(context) => bottom_bar()
   },
 ));
 

@@ -135,7 +135,7 @@ class _UserState extends State<Points> {
 
 
 
-        bottomNavigationBar:bottom_bar()
+        // bottomNavigationBar:bottom_bar()
     );
   }
 }

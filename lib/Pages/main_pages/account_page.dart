@@ -206,7 +206,7 @@ class _AccountState extends State<Account> {
       ),
         ),
     ),
-      bottomNavigationBar:bottom_bar()
+      // bottomNavigationBar:bottom_bar()
     );
   }
 }

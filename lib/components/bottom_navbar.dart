@@ -1,5 +1,9 @@
+import 'package:airway_flutter/Pages/main_pages/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:airway_flutter/Pages/main_pages/booking_1.dart';
+import 'package:airway_flutter/Pages/main_pages/account_page.dart';
+import 'package:airway_flutter/pages/main_pages/points_history.dart';
 
 class bottom_bar extends StatefulWidget {
   const bottom_bar({Key? key}) : super(key: key);
@@ -9,15 +13,34 @@ class bottom_bar extends StatefulWidget {
 }
 
 class _bottom_barState extends State<bottom_bar> {
+
+  int currentIndex = 0;
+  final List children = [
+    main_booking(),
+    Points(),
+    Account(),
+    Transactions()
+
+  ];
+
+  void onTapped (int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: BottomNavigationBar(
+    return Scaffold(
+      body: children[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
-              color: Colors.black,),
+              color: Colors.black,
+            ),
             label: 'Home',
+            
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pages,
@@ -36,6 +59,8 @@ class _bottom_barState extends State<bottom_bar> {
           )
 
         ],
+        onTap: onTapped,
+        currentIndex: currentIndex,
       ),
     );
   }
