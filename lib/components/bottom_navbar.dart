@@ -18,8 +18,8 @@ class _bottom_barState extends State<bottom_bar> {
   final List children = [
     main_booking(),
     Points(),
-    Account(),
-    Transactions()
+    Transactions(),
+    Account()
 
   ];
 
@@ -40,7 +40,7 @@ class _bottom_barState extends State<bottom_bar> {
               color: Colors.black,
             ),
             label: 'Home',
-            
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pages,

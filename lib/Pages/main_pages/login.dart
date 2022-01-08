@@ -152,6 +152,14 @@ class _loginState extends State<login> {
                                     Map data = json.decode(response.body);
                                     print(data);
 
+                                    if(data['message'] == 'InValid Password'){
+                                      print('failure, wrong password');
+                                    }
+                                    else {
+                                      print('Valid Password');
+                                      Navigator.pushReplacementNamed(context, 'bottom_bar');
+                                    }
+
                                   },
                                 )
                               ],
