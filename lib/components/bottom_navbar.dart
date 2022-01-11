@@ -13,17 +13,40 @@ class bottom_bar extends StatefulWidget {
 }
 
 class _bottom_barState extends State<bottom_bar> {
+  Map data = {};
 
+  @override
+  Widget build(BuildContext context) {
+    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
+    return NavBar(data: data,);
+  }
+}
+
+class NavBar extends StatefulWidget {
+  const NavBar({Key? key, required this.data}) : super(key: key);
+
+  final Map data;
+
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
   int currentIndex = 0;
-  PageController pageController = PageController();
 
-  final List children = [
-    main_booking(),
-    Points(),
-    Transactions(),
-    Account()
+  late List children;
 
-  ];
+  void initState() {
+    super.initState();
+
+    children = [
+      main_booking( data: widget.data),
+      Points(),
+      Transactions(),
+      Account()
+
+    ];
+  }
 
   void onTapped (int index) {
     setState(() {
@@ -31,7 +54,6 @@ class _bottom_barState extends State<bottom_bar> {
     });
     // pageController.jumpToPage(index);
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +90,7 @@ class _bottom_barState extends State<bottom_bar> {
     );
   }
 }
+
 
 
 

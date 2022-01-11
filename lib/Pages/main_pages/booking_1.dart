@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 
 class main_booking extends StatefulWidget {
-  const main_booking({Key? key}) : super(key: key);
+  const main_booking({Key? key, required this.data}) : super(key: key);
+
+  final Map data;
 
   @override
   _main_bookingState createState() => _main_bookingState();
@@ -11,6 +13,8 @@ class main_booking extends StatefulWidget {
 class _main_bookingState extends State<main_booking> {
   @override
   Widget build(BuildContext context) {
+    print(widget.data);
+
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,

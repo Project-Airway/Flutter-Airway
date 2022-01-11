@@ -18,7 +18,7 @@ import 'package:airway_flutter/components/bottom_navbar.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'login',
+  initialRoute: 'edit_account',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
@@ -31,9 +31,9 @@ void main() => runApp(MaterialApp(
     'points_history':(context) => Points(),
     'edit_account':(context) => Editprofile(),
     'faq':(context) => FAQ(),
-    'transactions':(context)=>Transactions(),
+    // 'transactions':(context)=>Transactions(),
     'reasons':(context)=>Reasons(),
-    'main_booking':(context)=>main_booking(),
+    // 'main_booking':(context)=>main_booking(),
     'results':(context)=>results(),
     'booking_confirm':(context)=>confirm_booking(),
     'bottom_bar':(context) => bottom_bar()
