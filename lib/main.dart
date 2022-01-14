@@ -19,7 +19,7 @@ import 'package:airway_flutter/components/bottom_navbar.dart';
 
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'user_onboard2',
+  initialRoute: 'user_onboard1',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),

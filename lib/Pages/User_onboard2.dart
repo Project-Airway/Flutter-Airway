@@ -41,7 +41,7 @@ class user_onboard2 extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/user_block1.png'),
+                            image: AssetImage('assets/user_block2.png'),
                             fit: BoxFit.fill
                         )
                     ),
@@ -56,6 +56,8 @@ class user_onboard2 extends StatelessWidget {
                             fontSize: 36,
                             fontFamily: 'poppins',
                             fontWeight: FontWeight.w600,
+                            color: Colors.grey[900],
+                            height: 1.2,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -65,6 +67,8 @@ class user_onboard2 extends StatelessWidget {
                             fontSize: 18,
                             fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
+                            color: Colors.grey[800],
+
                           ),
                           textAlign: TextAlign.center,
                         )
@@ -80,9 +84,9 @@ class user_onboard2 extends StatelessWidget {
                 Navigator.pushNamed(context, 'onboard3');
               },
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(249, 237, 105, 1),
+                    primary: Color.fromRGBO(245, 209, 0, 1),
                     side: BorderSide(width:1, color:Colors.black12), //border width and color
-                    elevation: 1,
+                    elevation: 5,
                     shape: RoundedRectangleBorder( //to set border radius to button
                         borderRadius: BorderRadius.circular(10)
                     ),
@@ -99,31 +103,7 @@ class user_onboard2 extends StatelessWidget {
                 ),
               ),
 
-              // ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //         primary: Color.fromRGBO(249, 237, 105, 1), //background color of button
-              //         side: BorderSide(width:1, color:Colors.black12), //border width and color
-              //         elevation: 1, //elevation of button
-              //         shape: RoundedRectangleBorder( //to set border radius to button
-              //             borderRadius: BorderRadius.circular(10)
-              //         ),
-              //         padding: EdgeInsets.fromLTRB(75, 15, 75, 15) //content padding inside button
-              //     ),
-              //     onPressed: (){
-              //       Navigator.push(
-              //         context,
-              //         MaterialPageRoute(builder: (context) => user_onboard3()),
-              //       );
-              //     },
-              //    child: Text('Login with Google',
-              //       style: TextStyle(color: Colors.black,
-              //           fontSize: 12,
-              //           fontFamily: 'poppins',
-              //           fontWeight: FontWeight.w600,
-              //    ),
-              //
-              //   ),
-              // ),
+
               SizedBox(height: 10),
               Text('Or'),
 
@@ -132,9 +112,9 @@ class user_onboard2 extends StatelessWidget {
                 Navigator.pushNamed(context, 'login');
               },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(249, 237, 105, 1),
+                      primary: Color.fromRGBO(245, 209, 0, 1),
                       side: BorderSide(width:1, color:Colors.black12), //border width and color
-                      elevation: 1,
+                      elevation: 5,
                       shape: RoundedRectangleBorder( //to set border radius to button
                           borderRadius: BorderRadius.circular(10)
                       ),
