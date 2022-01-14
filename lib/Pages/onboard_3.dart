@@ -24,6 +24,7 @@ class _onboard_3State extends State<onboard_3> {
         'password': password
       }),
     );
+
   }
 
 
@@ -47,14 +48,37 @@ class _onboard_3State extends State<onboard_3> {
             children: [
               SizedBox(height: 30),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(width: 30),
+                  // SizedBox(width: 0),
                   Image.asset('assets/logo.png'),
-                  SizedBox(width: 10),
-                  // ClipRect(
-                  //   child: Image.asset('assets/user_img1.png'),
-                  // )
+                  // SizedBox(width: 10),
+
+                  ElevatedButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, 'login');
+                  },
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(249, 237, 105, 1),
+                        side: BorderSide(width:1, color:Colors.black12), //border width and color
+                        elevation: 1,
+                        shape: RoundedRectangleBorder( //to set border radius to button
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10)
+                    ),
+
+                    child: Text('Login',
+                      style: TextStyle(color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+
+                    ),
+                  ),
+
+
                 ],
               ),
               SizedBox(height: 1),
@@ -69,7 +93,7 @@ class _onboard_3State extends State<onboard_3> {
                             fit: BoxFit.fill
                         )
                     ),
-                    height: 600,
+                    height: 550,
                     width: 350,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,14 +101,14 @@ class _onboard_3State extends State<onboard_3> {
                       children: [
                         Column(
                           children: [
-                            Text('One last\nstep.',
+                            Text('One last step.',
                               style: TextStyle(
                                 fontSize: 36,
                                 fontFamily: 'poppins',
                                 fontWeight: FontWeight.w600,
                               ),
                               textAlign: TextAlign.center,),
-                            SizedBox(height: 10,),
+                            // SizedBox(height: 10,),
                             Text('Fill these essential details\nandyou’re good to go',
                               style: TextStyle(
                                 fontSize: 18,
@@ -193,9 +217,24 @@ class _onboard_3State extends State<onboard_3> {
 
                                     Map data = json.decode(response.body);
                                     String currentUser_id = data['_id'];
+                                    print(data);
+
+                                    // if(data['message'] != null){
+                                    //   print('failure, wrong password');
+                                    // }
+                                    // else {
+                                    //   print('Valid Password');
+                                      Navigator.pushReplacementNamed(context, 'bottom_bar', arguments: {
+                                        "user_id" : data['_id']
+                                      });
+                                    // }
+
 
                                   },
-                                )
+                                ),
+
+
+
                               ],
                             ))
                           ],

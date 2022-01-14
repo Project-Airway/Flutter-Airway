@@ -206,6 +206,8 @@ class _booking_formState extends State<booking_form> {
                     height: 50.0,
                     child: RaisedButton(onPressed: (){
 
+                      Navigator.pushNamed(context, 'results');
+
                     },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),

@@ -94,7 +94,7 @@ class _TransactionsState extends State<Transactions> {
           ),
         ),
       ),
-      bottomNavigationBar: bottom_bar(),
+
     );
   }
   Container expansion(String img,String ques,String ans) {

@@ -17,13 +17,14 @@ import 'package:airway_flutter/Pages/main_pages/booking_confirm.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 
 
+
 void main() => runApp(MaterialApp(
-  initialRoute: 'edit_account',
+  initialRoute: 'user_onboard2',
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
     'user_onboard2':(context) => user_onboard2(),
-    'user_onboard3':(context) => user_onboard3(),
+    // 'user_onboard3':(context) => user_onboard3(),
     'login':(context) => login(),
     'onboard3':(context) => onboard_3(),
     'user_onboardmain':(context) => user_onboardmain(),

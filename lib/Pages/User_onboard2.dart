@@ -11,9 +11,15 @@ class user_onboard2 extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Container(
-          decoration: new BoxDecoration(
-            color: Color.fromRGBO(245, 209, 0, 1),
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage('assets/onboard_2bg.png'),
+                fit: BoxFit.fill
+            ),
+
+
           ),
+          width: double.infinity,
+          height: double.infinity,
           child: Column(
             children: [
               SizedBox(height: 20),
@@ -22,14 +28,12 @@ class user_onboard2 extends StatelessWidget {
                 children: [
                   SizedBox(width: 30),
                   Image.asset('assets/logo.png'),
-                  //SizedBox(width: 10),
-                  Image.asset('assets/img1.png',cacheHeight: 330,cacheWidth:270 ,),
                   // ClipRect(
                   //   child: Image.asset('assets/user_img1.png'),
                   // )
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 150),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -72,28 +76,27 @@ class user_onboard2 extends StatelessWidget {
 
 
 
-              TextButton.icon(onPressed: (){
-                Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => user_onboard3()),
-                          );
+              ElevatedButton(onPressed: (){
+                Navigator.pushNamed(context, 'onboard3');
               },
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(55, 15, 55, 15),
-                    backgroundColor: Color.fromRGBO(249, 237, 105, 1),
-                    primary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                  icon: Image(image: AssetImage('assets/Vector.png')),
-                  label: Text('Sign in with Google',
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(249, 237, 105, 1),
+                    side: BorderSide(width:1, color:Colors.black12), //border width and color
+                    elevation: 1,
+                    shape: RoundedRectangleBorder( //to set border radius to button
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    padding: EdgeInsets.fromLTRB(80, 15, 80, 15)
+                ),
+
+                child: Text('Sign up',
                   style: TextStyle(color: Colors.black,
                     fontSize: 12,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
-                  ),),
+                  ),
 
+                ),
               ),
 
               // ElevatedButton(
@@ -126,7 +129,7 @@ class user_onboard2 extends StatelessWidget {
 
               SizedBox(height: 10),
               ElevatedButton(onPressed: (){
-
+                Navigator.pushNamed(context, 'login');
               },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromRGBO(249, 237, 105, 1),
@@ -138,7 +141,7 @@ class user_onboard2 extends StatelessWidget {
                     padding: EdgeInsets.fromLTRB(80, 15, 80, 15)
                   ),
 
-                  child: Text('Sign in as guest',
+                  child: Text('Login',
                     style: TextStyle(color: Colors.black,
                       fontSize: 12,
                       fontFamily: 'poppins',

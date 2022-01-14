@@ -67,7 +67,7 @@ class _resultsState extends State<results> {
                       padding: const EdgeInsets.fromLTRB(20,10,20,10),
                       child: GestureDetector(
                         onTap: (){
-                          Navigator.pushReplacementNamed(context, '');
+                          Navigator.pushReplacementNamed(context, 'booking_confirm');
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(

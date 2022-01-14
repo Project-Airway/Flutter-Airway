@@ -43,14 +43,37 @@ class _loginState extends State<login> {
             children: [
               SizedBox(height: 30),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(width: 30),
+                  // SizedBox(width: 0),
                   Image.asset('assets/logo.png'),
-                  SizedBox(width: 10),
-                  // ClipRect(
-                  //   child: Image.asset('assets/user_img1.png'),
-                  // )
+                  // SizedBox(width: 10),
+
+                  ElevatedButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, 'onboard3');
+                  },
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(249, 237, 105, 1),
+                        side: BorderSide(width:1, color:Colors.black12), //border width and color
+                        elevation: 1,
+                        shape: RoundedRectangleBorder( //to set border radius to button
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 10)
+                    ),
+
+                    child: Text('Sign up',
+                      style: TextStyle(color: Colors.black,
+                        fontSize: 12,
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.w600,
+                      ),
+
+                    ),
+                  ),
+
+
                 ],
               ),
               SizedBox(height: 1),
