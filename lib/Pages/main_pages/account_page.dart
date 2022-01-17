@@ -65,7 +65,9 @@ class _AccountState extends State<Account> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          TextButton.icon(onPressed: () {}, icon: Icon(Icons.edit,color: Colors.grey[600],
+                          TextButton.icon(onPressed: () {
+                            Navigator.pushNamed(context, 'edit_account');
+                          }, icon: Icon(Icons.edit,color: Colors.grey[600],
                               size: 25.0,), label: Text('\t\t\t\t\t''Edit Info',
                               style: TextStyle(
                               fontSize: 20,fontFamily: 'poppins',

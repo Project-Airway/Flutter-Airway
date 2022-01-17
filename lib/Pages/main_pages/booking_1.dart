@@ -70,8 +70,6 @@ class _booking_formState extends State<booking_form> {
 
     final sourceEditingController = TextEditingController();
     final destEditingController = TextEditingController();
-    String card_id = '';
-    var amount = -1;
     DateTime selectedDate = DateTime.now();
 
     _selectDate(BuildContext context) async {

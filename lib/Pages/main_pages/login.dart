@@ -6,11 +6,13 @@ import 'package:http/http.dart' as http;
 class login extends StatefulWidget {
   const login({Key? key}) : super(key: key);
 
+
   @override
   _loginState createState() => _loginState();
 }
 
 class _loginState extends State<login> {
+  int _flag =0;
 
   Future<http.Response> login(String email, String password) async {
     return http.post(Uri.parse('http://10.0.2.2:3001/users/login'),
@@ -112,6 +114,23 @@ class _loginState extends State<login> {
                               ),
                               textAlign: TextAlign.center,
                             ),
+
+                            SizedBox(height: 10,),
+
+                            if (_flag == 1) ...[
+                              Container(
+                                child: Text('Wrong email or password',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'poppins',
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.redAccent
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )
+                            ],
+
                             Form(child: Column(
                               children: [
                                 // _buildNameField(),
@@ -175,8 +194,13 @@ class _loginState extends State<login> {
                                     Map data = json.decode(response.body);
                                     print(data);
 
-                                    if(data['message'] == 'InValid Password'){
+                                    if(data.containsKey('message')){
                                       print('failure, wrong password');
+
+                                      setState(() {
+                                        _flag = 1;
+                                      });
+
                                     }
                                     else {
                                       print('Valid Password');
