@@ -16,11 +16,15 @@ import 'package:airway_flutter/Pages/main_pages/search_results.dart';
 import 'package:airway_flutter/Pages/main_pages/booking_confirm.dart';
 import 'package:airway_flutter/Pages/main_pages/edit_acc.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
-
-
+import 'package:airway_flutter/components/Transaction_Card.dart';
+import 'package:airway_flutter/components/Transactions_Builder.dart';
 
 void main() => runApp(MaterialApp(
+<<<<<<< Updated upstream
   initialRoute: 'login',
+=======
+  initialRoute: 'transactions',
+>>>>>>> Stashed changes
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
@@ -33,13 +37,15 @@ void main() => runApp(MaterialApp(
     'points_history':(context) => Points(),
     'edit_account':(context) => Editprofile(),
     'faq':(context) => FAQ(),
-    // 'transactions':(context)=>Transactions(),
+    'transactions':(context)=>Transactions(),
     'reasons':(context)=>Reasons(),
     // 'main_booking':(context)=>main_booking(),
     'results':(context)=>results(),
     'booking_confirm':(context)=>confirm_booking(),
     'bottom_bar':(context) => bottom_bar(),
     'edit_acc' : (context) => editInfo(),
+    'transact_card':(context)=>TransactionDetails(),
+    'trans_builder':(context)=>TransBuilder(),
   },
 ));
 
