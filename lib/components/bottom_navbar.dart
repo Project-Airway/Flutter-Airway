@@ -59,28 +59,30 @@ class _NavBarState extends State<NavBar> {
     return Scaffold(
       body: children[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Color.fromRGBO(189, 189, 189, 1),
+        selectedItemColor: Color.fromRGBO(246, 194, 57, 1),
+        selectedIconTheme: IconThemeData(
+          color: Color.fromRGBO(246, 194, 57, 1),
+        ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(20, 20, 20, 1),
             icon: Icon(Icons.home,
-              color: Colors.black,
             ),
             label: 'Home',
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pages,
-              color: Colors.black,),
-            label: 'Option2',
+            icon: Icon(Icons.pages,),
+            label: 'Points',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit_rounded,
-              color: Colors.black,),
-            label: 'Option3',
+            icon: Icon(Icons.ac_unit_rounded,),
+            label: 'History',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_rounded,
-              color: Colors.black,),
-            label: 'User Account',
+            icon: Icon(Icons.account_box_rounded,),
+            label: 'Account',
           )
 
         ],
