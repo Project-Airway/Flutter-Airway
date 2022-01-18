@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:airway_flutter/components/bottom_navbar.dart';
 
 class main_booking extends StatefulWidget {
-  const main_booking({Key? key}) : super(key: key);
+  const main_booking({Key? key, required this.data}) : super(key: key);
+
+  final Map data;
 
   @override
   _main_bookingState createState() => _main_bookingState();
@@ -10,36 +13,47 @@ class main_booking extends StatefulWidget {
 class _main_bookingState extends State<main_booking> {
   @override
   Widget build(BuildContext context) {
+    print(widget.data);
+
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bg-common.jpeg'),
-            fit: BoxFit.fitWidth,
+      backgroundColor: Color.fromRGBO(33, 33, 33, 1),
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/bg-common-main.png'),
+              fit: BoxFit.fitWidth,
+            ),
+
           ),
+          width: double.infinity,
+          height: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(40,20,20,20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset('assets/logo2.png'),
+                SizedBox(height: 10,),
+                Text('Hey Adi,\nWhere to next ?',style: TextStyle(
+                  fontSize: 36,
+                  fontFamily: 'poppins',
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white
+                ),),
 
-        ),
-        width: double.infinity,
-        height: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(40,20,20,20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset('assets/logo.png'),
-              Text('Hey Adi,\nWhere to next ?',style: TextStyle(
-                fontSize: 36,
-                fontFamily: 'poppins',
-                fontWeight: FontWeight.w700,
-              ),),
+                SizedBox(height: 20,),
 
-              booking_form(),
+                booking_form(),
 
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
+      // bottomNavigationBar: bottom_bar(),
     );
   }
 }
@@ -61,8 +75,6 @@ class _booking_formState extends State<booking_form> {
 
     final sourceEditingController = TextEditingController();
     final destEditingController = TextEditingController();
-    String card_id = '';
-    var amount = -1;
     DateTime selectedDate = DateTime.now();
 
     _selectDate(BuildContext context) async {
@@ -88,8 +100,9 @@ class _booking_formState extends State<booking_form> {
 
           Text('Enter your source',style: TextStyle(
             fontFamily: 'poppins',
-            fontWeight: FontWeight.w700,
-            fontSize: 22,),),
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            fontSize: 18,),),
 
           Container(
             padding:EdgeInsets.only(top:10,right:0,left:0),
@@ -97,7 +110,7 @@ class _booking_formState extends State<booking_form> {
               shape:RoundedRectangleBorder(
                 borderRadius:BorderRadius.circular(20),
               ),
-              color:Colors.white,
+              color:Color.fromRGBO(33, 33, 33, 1),
               child: Container(
                 padding:EdgeInsets.only(left:20),
                 child: TextFormField(
@@ -105,8 +118,10 @@ class _booking_formState extends State<booking_form> {
                   decoration:InputDecoration(
                     label: Text('eg. Bangalore',style: TextStyle(
                       fontFamily: 'poppins',
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,),),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      color: Color.fromRGBO(198, 198, 198, 1)
+                    ),),
                     border:InputBorder.none,
                     fillColor:Colors.white,
                   ),
@@ -115,12 +130,13 @@ class _booking_formState extends State<booking_form> {
             ),
           ),
 
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
 
           Text('Enter your destination',style: TextStyle(
             fontFamily: 'poppins',
-            fontWeight: FontWeight.w700,
-            fontSize: 22,),),
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            fontSize: 18,),),
 
           Container(
             padding:EdgeInsets.only(top:10,right:0,left:0),
@@ -128,7 +144,7 @@ class _booking_formState extends State<booking_form> {
               shape:RoundedRectangleBorder(
                 borderRadius:BorderRadius.circular(20),
               ),
-              color:Colors.white,
+              color:Color.fromRGBO(33, 33, 33, 1),
               child: Container(
                 padding:EdgeInsets.only(left:20),
                 child: TextFormField(
@@ -137,6 +153,7 @@ class _booking_formState extends State<booking_form> {
                     label: Text('eg. Pune',style: TextStyle(
                       fontFamily: 'poppins',
                       fontWeight: FontWeight.w600,
+                      color: Color.fromRGBO(198, 198, 198, 1),
                       fontSize: 18,),),
                     border:InputBorder.none,
                     fillColor:Colors.white,
@@ -145,28 +162,31 @@ class _booking_formState extends State<booking_form> {
               ),
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 10,),
 
           Text('Enter date',style: TextStyle(
             fontFamily: 'poppins',
-            fontWeight: FontWeight.w700,
-            fontSize: 22,),),
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            fontSize: 18,),),
 
           Container(
             padding:EdgeInsets.only(top:10,right:0,left:0),
             child:Card(
+
               shape:RoundedRectangleBorder(
                 borderRadius:BorderRadius.circular(20),
               ),
-              color:Colors.white,
+              color:Color.fromRGBO(33, 33, 33, 1),
               child: Container(
-                padding:EdgeInsets.only(left:20, right: 20),
+                padding:EdgeInsets.only(left:20, right: 20, top: 5, bottom: 5),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("${selectedDate.toLocal()}".split(' ')[0],style: TextStyle(
                       fontFamily: 'poppins',
                       fontWeight: FontWeight.w600,
+                      color: Color.fromRGBO(198, 198, 198, 1),
                       fontSize: 18,),),
 
                     RaisedButton(
@@ -174,9 +194,9 @@ class _booking_formState extends State<booking_form> {
                       child: Text(
                         'Select date',
                         style:
-                        TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                        TextStyle(color: Color.fromRGBO(198, 198, 198, 1), fontWeight: FontWeight.bold),
                       ),
-                      color: Colors.white,
+                      color:Color.fromRGBO(33, 33, 33, 1),
                       elevation: 0,
                     ),
                   ],
@@ -189,32 +209,39 @@ class _booking_formState extends State<booking_form> {
           ),
 
 
-          Row(
-            children: [
-              Center(
-                  child: ButtonTheme(
-                    minWidth: 304,
-                    height: 50.0,
-                    child: RaisedButton(onPressed: (){
-
-                    },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      color: Color.fromRGBO(229, 220, 53, 1.0),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                        child: Text('Confirm', style: TextStyle(
-                            fontFamily: 'montserrat',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 24,
-                            color: Colors.white
-                        ),),
+          Center(
+              child: Container(
+                height: 50.0,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'results');
+                  },
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                  padding: EdgeInsets.all(0.0),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [Color.fromRGBO(249, 237, 105, 1), Color.fromRGBO(183, 142, 96, 1)],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15.0)
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 320.0, minHeight: 50.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Find tickets",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(33, 33, 33, 1),
+                          fontSize: 18,)
                       ),
                     ),
-                  )
+                  ),
+                ),
               ),
-
-            ],
           ),
 
         ],

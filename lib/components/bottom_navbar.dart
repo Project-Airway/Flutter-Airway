@@ -1,5 +1,9 @@
+import 'package:airway_flutter/Pages/main_pages/transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:airway_flutter/Pages/main_pages/booking_1.dart';
+import 'package:airway_flutter/Pages/main_pages/account_page.dart';
+import 'package:airway_flutter/pages/main_pages/points_history.dart';
 
 class bottom_bar extends StatefulWidget {
   const bottom_bar({Key? key}) : super(key: key);
@@ -9,37 +13,86 @@ class bottom_bar extends StatefulWidget {
 }
 
 class _bottom_barState extends State<bottom_bar> {
+  Map data = {};
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: BottomNavigationBar(
+    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
+    return NavBar(data: data,);
+  }
+}
+
+class NavBar extends StatefulWidget {
+  const NavBar({Key? key, required this.data}) : super(key: key);
+
+  final Map data;
+
+  @override
+  _NavBarState createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
+  int currentIndex = 0;
+
+  late List children;
+
+  void initState() {
+    super.initState();
+
+    children = [
+      main_booking( data: widget.data),
+      Points(),
+      Transactions(),
+      Account()
+
+    ];
+  }
+
+  void onTapped (int index) {
+    setState(() {
+      currentIndex = index;
+    });
+    // pageController.jumpToPage(index);
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: children[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Color.fromRGBO(189, 189, 189, 1),
+        selectedItemColor: Color.fromRGBO(246, 194, 57, 1),
+        selectedIconTheme: IconThemeData(
+          color: Color.fromRGBO(246, 194, 57, 1),
+        ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(20, 20, 20, 1),
             icon: Icon(Icons.home,
-              color: Colors.black,),
+            ),
             label: 'Home',
+
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pages,
-              color: Colors.black,),
-            label: 'Option2',
+            icon: Icon(Icons.pages,),
+            label: 'Points',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit_rounded,
-              color: Colors.black,),
-            label: 'Option3',
+            icon: Icon(Icons.ac_unit_rounded,),
+            label: 'History',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_box_rounded,
-              color: Colors.black,),
-            label: 'User Account',
+            icon: Icon(Icons.account_box_rounded,),
+            label: 'Account',
           )
 
         ],
+        onTap: onTapped,
+        currentIndex: currentIndex,
       ),
     );
   }
 }
+
 
 
 

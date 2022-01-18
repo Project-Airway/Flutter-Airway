@@ -78,7 +78,6 @@ class _UserState extends State<Points> {
                   SizedBox(height: 20,),
                   Center(
                     child: Container(
-
                       child: Text(
                         'Points\nEarned',
                         style: TextStyle(
@@ -121,21 +120,13 @@ class _UserState extends State<Points> {
                       ),
                     ),
                   ),
-
                   points_history()
-
                 ],
               ),
-
             ),
-
           ),
-
         ),
-
-
-
-        bottomNavigationBar:bottom_bar()
+        // bottomNavigationBar:bottom_bar()
     );
   }
 }

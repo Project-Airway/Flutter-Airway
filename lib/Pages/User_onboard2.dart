@@ -11,9 +11,15 @@ class user_onboard2 extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Container(
-          decoration: new BoxDecoration(
-            color: Color.fromRGBO(245, 209, 0, 1),
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage('assets/onboard_2bg.png'),
+                fit: BoxFit.fill
+            ),
+
+
           ),
+          width: double.infinity,
+          height: double.infinity,
           child: Column(
             children: [
               SizedBox(height: 20),
@@ -22,14 +28,12 @@ class user_onboard2 extends StatelessWidget {
                 children: [
                   SizedBox(width: 30),
                   Image.asset('assets/logo.png'),
-                  //SizedBox(width: 10),
-                  Image.asset('assets/img1.png',cacheHeight: 330,cacheWidth:270 ,),
                   // ClipRect(
                   //   child: Image.asset('assets/user_img1.png'),
                   // )
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 150),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +41,7 @@ class user_onboard2 extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('assets/user_block1.png'),
+                            image: AssetImage('assets/user_block2.png'),
                             fit: BoxFit.fill
                         )
                     ),
@@ -52,6 +56,8 @@ class user_onboard2 extends StatelessWidget {
                             fontSize: 36,
                             fontFamily: 'poppins',
                             fontWeight: FontWeight.w600,
+                            color: Colors.grey[900],
+                            height: 1.2,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -61,6 +67,8 @@ class user_onboard2 extends StatelessWidget {
                             fontSize: 18,
                             fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
+                            color: Colors.grey[800],
+
                           ),
                           textAlign: TextAlign.center,
                         )
@@ -72,73 +80,48 @@ class user_onboard2 extends StatelessWidget {
 
 
 
-              TextButton.icon(onPressed: (){
-                Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => user_onboard3()),
-                          );
+              ElevatedButton(onPressed: (){
+                Navigator.pushNamed(context, 'onboard3');
               },
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.fromLTRB(55, 15, 55, 15),
-                    backgroundColor: Color.fromRGBO(249, 237, 105, 1),
-                    primary: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                    )
-                  ),
-                  icon: Image(image: AssetImage('assets/Vector.png')),
-                  label: Text('Sign in with Google',
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(245, 209, 0, 1),
+                    side: BorderSide(width:1, color:Colors.black12), //border width and color
+                    elevation: 5,
+                    shape: RoundedRectangleBorder( //to set border radius to button
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    padding: EdgeInsets.fromLTRB(80, 15, 80, 15)
+                ),
+
+                child: Text('Sign up',
                   style: TextStyle(color: Colors.black,
                     fontSize: 12,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
-                  ),),
+                  ),
 
+                ),
               ),
 
-              // ElevatedButton(
-              //     style: ElevatedButton.styleFrom(
-              //         primary: Color.fromRGBO(249, 237, 105, 1), //background color of button
-              //         side: BorderSide(width:1, color:Colors.black12), //border width and color
-              //         elevation: 1, //elevation of button
-              //         shape: RoundedRectangleBorder( //to set border radius to button
-              //             borderRadius: BorderRadius.circular(10)
-              //         ),
-              //         padding: EdgeInsets.fromLTRB(75, 15, 75, 15) //content padding inside button
-              //     ),
-              //     onPressed: (){
-              //       Navigator.push(
-              //         context,
-              //         MaterialPageRoute(builder: (context) => user_onboard3()),
-              //       );
-              //     },
-              //    child: Text('Login with Google',
-              //       style: TextStyle(color: Colors.black,
-              //           fontSize: 12,
-              //           fontFamily: 'poppins',
-              //           fontWeight: FontWeight.w600,
-              //    ),
-              //
-              //   ),
-              // ),
+
               SizedBox(height: 10),
               Text('Or'),
 
               SizedBox(height: 10),
               ElevatedButton(onPressed: (){
-
+                Navigator.pushNamed(context, 'login');
               },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromRGBO(249, 237, 105, 1),
+                      primary: Color.fromRGBO(245, 209, 0, 1),
                       side: BorderSide(width:1, color:Colors.black12), //border width and color
-                      elevation: 1,
+                      elevation: 5,
                       shape: RoundedRectangleBorder( //to set border radius to button
                           borderRadius: BorderRadius.circular(10)
                       ),
                     padding: EdgeInsets.fromLTRB(80, 15, 80, 15)
                   ),
 
-                  child: Text('Sign in as guest',
+                  child: Text('Login',
                     style: TextStyle(color: Colors.black,
                       fontSize: 12,
                       fontFamily: 'poppins',

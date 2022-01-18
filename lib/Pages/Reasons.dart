@@ -85,17 +85,24 @@ class _ReasonsState extends State<Reasons> {
                             },
                             controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
                           ),
-                          TextField(
-                            decoration: InputDecoration(
-                              // labelText: "Other Reasons",
-                              hintText: "Let us know why",
-                              // labelStyle: TextStyle(
-                              //   color: Colors.black54,
-                              //   fontSize: 16,
-                              //   fontWeight: FontWeight.bold,
-                              // ),
-                              hintStyle: TextStyle(
-                                color: Colors.grey,
+                          Card(
+                            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                            elevation: 20,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  // labelText: "Other Reasons",
+                                  hintText: "Let us know why",
+                                  // labelStyle: TextStyle(
+                                  //   color: Colors.black54,
+                                  //   fontSize: 16,
+                                  //   fontWeight: FontWeight.bold,
+                                  // ),
+                                  hintStyle: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -109,10 +116,12 @@ class _ReasonsState extends State<Reasons> {
                   children: [
                     ElevatedButton(onPressed: (){}, child: Text("Submit",
                     style: TextStyle(
-                    color: Colors.redAccent,
+                    color: Colors.white,
                       fontSize: 20,
                     ),),),
-                  ElevatedButton(onPressed: (){}, child: Text("Cancel",
+                  ElevatedButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, child: Text("Cancel",
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -126,8 +135,8 @@ class _ReasonsState extends State<Reasons> {
       ),
           ),
     ),
-
-      bottomNavigationBar: bottom_bar(),
+      //
+      // bottomNavigationBar: bottom_bar(),
     );
   }
 }

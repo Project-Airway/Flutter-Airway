@@ -11,9 +11,15 @@ class user_onboard1 extends StatelessWidget {
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           body: Container(
-            decoration: new BoxDecoration(
-              color: Color.fromRGBO(245, 209, 0, 1),
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage('assets/onboard_bg1.png'),
+                  fit: BoxFit.fill
+              ),
+
+
             ),
+            width: double.infinity,
+            height: double.infinity,
             child: Column(
               children: [
                 SizedBox(height: 30),
@@ -22,14 +28,10 @@ class user_onboard1 extends StatelessWidget {
                   children: [
                     SizedBox(width: 30),
                     Image.asset('assets/logo.png'),
-                    //SizedBox(width: 10),
-                    Image.asset('assets/user_img1.png',cacheHeight: 300,cacheWidth: 250,),
-                    // ClipRect(
-                    //   child: Image.asset('assets/user_img1.png'),
-                    // )
+
                   ],
                 ),
-                SizedBox(height: 70),
+                SizedBox(height: 150),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,6 +54,8 @@ class user_onboard1 extends StatelessWidget {
                               fontSize: 36,
                               fontFamily: 'poppins',
                               fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              height: 1.2,
                             ),
                               textAlign: TextAlign.center,
                           ),
@@ -61,6 +65,7 @@ class user_onboard1 extends StatelessWidget {
                               fontSize: 18,
                               fontFamily: 'poppins',
                               fontWeight: FontWeight.w500,
+                                color: Colors.white
                             ),
                             textAlign: TextAlign.center,
                           )
@@ -74,7 +79,7 @@ class user_onboard1 extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       shape: CircleBorder(),
-                      primary: Color.fromRGBO(249, 237, 105, 1)
+                      primary: Color.fromRGBO(240, 205, 133, 1)
                   ),
                   child: Container(
                     width: 100,
