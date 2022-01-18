@@ -22,7 +22,7 @@ class confirm_booking extends StatelessWidget {
         body: Container(
         decoration: BoxDecoration(
         image: DecorationImage(
-        image: AssetImage('assets/bg-common.jpeg'),
+        image: AssetImage('assets/bg-common-main3.png'),
     fit: BoxFit.fitWidth,
     ),
 
@@ -30,21 +30,19 @@ class confirm_booking extends StatelessWidget {
     width: double.infinity,
     height: double.infinity,
     child: Padding(
-    padding: const EdgeInsets.fromLTRB(40,20,20,20),
+    padding: const EdgeInsets.fromLTRB(30,20,20,20),
     child: ListView(
         shrinkWrap: true,
 
     // crossAxisAlignment: CrossAxisAlignment.start,
     children: [
     // Image.asset('assets/logo.png'),
-      SizedBox(height: 50,child: Image.asset('assets/logo.png',alignment: Alignment.topLeft,)),
-    Text('Almost there..',style: TextStyle(
-    fontSize: 36,
-    fontFamily: 'poppins',
-    fontWeight: FontWeight.w700,
-    ),),
+      SizedBox(height: 50,child: Image.asset('assets/logo2.png',alignment: Alignment.topLeft,)),
+
+      SizedBox(height: 50,),
 
       Card(
+        color: Color.fromRGBO(20, 20, 20, 1),
         elevation: 10
       ,
         shape: RoundedRectangleBorder(
@@ -62,6 +60,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 24,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                    color: Colors.white
                   ),),],
               ),
               SizedBox(height: 20,),
@@ -72,6 +71,7 @@ class confirm_booking extends StatelessWidget {
                 fontSize: 18,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w700,
+                  color: Colors.white
               ),),],),
 
               Row(
@@ -81,6 +81,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),],),
 
               SizedBox(height: 20,),
@@ -93,18 +94,21 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
                   Text('${details[0][3]} hr',style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),
 
                   Text('${details[0][1]}',style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
                 ],),
@@ -116,6 +120,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),
 
                   Image.asset('assets/ticket_fill_2.png'),
@@ -124,6 +129,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),
 
                 ],),
@@ -137,6 +143,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
 
@@ -144,6 +151,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
                 ],),
@@ -155,6 +163,7 @@ class confirm_booking extends StatelessWidget {
                 fontSize: 14,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w500,
+                  color: Colors.white
               ),),
 
 
@@ -162,6 +171,7 @@ class confirm_booking extends StatelessWidget {
                 fontSize: 14,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w500,
+                  color: Colors.white
               ),),
             ],),
 
@@ -174,6 +184,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
 
@@ -181,6 +192,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
                 ],),
@@ -192,6 +204,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),
 
 
@@ -199,6 +212,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),),
                 ],),
 
@@ -211,6 +225,7 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 22,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),],
               ),
 
@@ -237,6 +252,7 @@ class confirm_booking extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'poppins',
                         fontWeight: FontWeight.w500,
+                          color: Colors.white
                       ),textAlign: TextAlign.center),
                     ],
                   ),
@@ -260,6 +276,7 @@ class confirm_booking extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'poppins',
                         fontWeight: FontWeight.w500,
+                          color: Colors.white
                       ),textAlign: TextAlign.center,
                       ),
                     ],
@@ -284,6 +301,7 @@ class confirm_booking extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'poppins',
                         fontWeight: FontWeight.w500,
+                          color: Colors.white
                       ),textAlign: TextAlign.center),
                     ],
                   ),
@@ -298,12 +316,14 @@ class confirm_booking extends StatelessWidget {
                     fontSize: 22,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
+                      color: Colors.white
                   ),),
 
                   Text('Price',style: TextStyle(
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
+                      color: Colors.white
                   ),textAlign: TextAlign.center),
 
                 ],
@@ -314,21 +334,27 @@ class confirm_booking extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RaisedButton(onPressed: () {
+                    RaisedButton(onPressed: (){
+                      Navigator.pop(context);
                     },
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      color: Colors.amber,
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(color: Color.fromRGBO(221, 195, 102, 1),width: 4)
+                      ),
+
+                      color: Color.fromRGBO(221, 195, 102, 1),
+
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                        child: Text('Confirm', style: TextStyle(
-                            fontFamily: 'montserrat',
-                            fontWeight: FontWeight.w600,
-                            fontSize: 24,
-                            color: Colors.white
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Text('Book', style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24,
+                          color: Color.fromRGBO(20, 20, 20, 1),
                         ),),
                       ),
                     ),
+
 
 
 
@@ -336,22 +362,22 @@ class confirm_booking extends StatelessWidget {
                       Navigator.pop(context);
                     },
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          side: BorderSide(color: Colors.amber,width: 4)
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(color: Color.fromRGBO(221, 195, 102, 1),width: 4)
                       ),
 
-                      color: Colors.white,
+                      color: Color.fromRGBO(255, 228, 211, 0),
 
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                        child: Text('Cancel', style: TextStyle(
-                          fontFamily: 'montserrat',
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Text('Back', style: TextStyle(
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
                           fontSize: 24,
-                          color: Colors.amber,
+                          color: Color.fromRGBO(221, 195, 102, 1),
                         ),),
                       ),
-                    )
+                    ),
                   ],
                 )
             ],
