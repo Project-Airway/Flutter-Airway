@@ -16,41 +16,40 @@ class _TransactionsState extends State<Transactions> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body:Center(
-        child:SafeArea(
-          child:Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/6.jpeg'),
-                fit:BoxFit.fitHeight,
+          child:SingleChildScrollView(
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/bg-common-main2.png'),
+                  fit:BoxFit.cover,
+                ),
               ),
-            ),
-            padding:EdgeInsets.symmetric(horizontal: 15.0,vertical:0.0),
-              child:Column(
-                children: [
-                  SizedBox(height: 10.0),
-                  Image(image: AssetImage('assets/Btn.png')),
-                  SizedBox(height: 10.0),
-                  Container(
-                    child: Center(
-                      child: Text('Transaction\nHistory',
-                        style: TextStyle(
-                          fontSize: 28.0,
-                          fontWeight: FontWeight.w900,
-                          color:Colors.black,
-                          letterSpacing: 2.0,
+              padding:EdgeInsets.symmetric(horizontal: 15.0,vertical:0.0),
+                child:Column(
+                  children: [
+                    SizedBox(height: 10.0),
+                    Image(image: AssetImage('assets/logo2.png')),
+                    SizedBox(height: 10.0),
+                    Container(
+                      child: Center(
+                        child: Text('Transaction\nHistory',
+                          style: TextStyle(
+                            fontSize: 28.0,
+                            fontWeight: FontWeight.w900,
+                            color:Colors.white,
+                            letterSpacing: 2.0,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10,),
-                  TransBuilder()
-                  ],
+                    SizedBox(height: 10,),
+                    TransBuilder()
+                    ],
+                ),
               ),
-            ),
           ),
-        ),
-
+          ),
     );
   }
 
