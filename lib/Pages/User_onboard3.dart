@@ -1,6 +1,7 @@
 import 'package:airway_flutter/Pages/Edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 class NameFieldValidator{
   static String validator(String value){
@@ -67,7 +68,9 @@ class user_onboard3 extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(40.0,20,40,0),
       child: TextFormField(
+        keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(labelText: 'Email',
+
           border: OutlineInputBorder(),
           fillColor: Color.fromRGBO(255, 248, 208, 1),
           filled: true,
@@ -87,8 +90,11 @@ class user_onboard3 extends StatelessWidget {
   }
   Widget _buildPhone_noField(){
     return Padding(
+
       padding: const EdgeInsets.fromLTRB(40.0,20,40,0),
       child: TextFormField(
+        maxLength: 10,
+        keyboardType: TextInputType.number,
         decoration: InputDecoration(labelText: 'Phone no',
           border: OutlineInputBorder(),
           fillColor: Color.fromRGBO(255, 248, 208, 1),
@@ -97,10 +103,11 @@ class user_onboard3 extends StatelessWidget {
 
         ),
         validator: (value){
-          if(value == null || value.isEmpty){}
-          return 'Name is required';
 
-        //  PhoneFieldValidator.validator;
+          if(value == null || value.isEmpty){}
+          return 'phone number is required';
+
+
         },
         onSaved: (value){
           phone_no = value!;
@@ -134,22 +141,23 @@ class user_onboard3 extends StatelessWidget {
               ),
               SizedBox(height: 1),
 
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/user_block3.png'),
-                            fit: BoxFit.fill
-                        )
-                    ),
-                    height: 600,
-                    width: 350,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+              Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/user_block3.png'),
+                        fit: BoxFit.fill
+                    )
+                ),
+                height: 600,
+                width: 350,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                         Column(
                           children: [
                             Text('One last\nstep.',
@@ -169,6 +177,7 @@ class user_onboard3 extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             Form(child: Column(
+                              key: _formKey,                  //to access form key we have to use key,without this form key would be null
                               children: [
                                 _buildNameField(),
                                 _buildEmailField(),
@@ -196,7 +205,13 @@ class user_onboard3 extends StatelessWidget {
                                     ),
                                     color: Color.fromRGBO(245, 209, 0, 1),
 
-                                    onPressed: (){},
+                                    onPressed: (){
+                                      if(!_formKey.currentState!.validate()){   //this will do the all the necessary validate
+                                          return ;
+                                      }
+                                      print(name);
+                                      _formKey.currentState!.save();    //this will call the onsaved function
+                                    },
                                 )
                               ],
                             ))

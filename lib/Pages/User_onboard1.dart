@@ -29,7 +29,7 @@ class user_onboard1 extends StatelessWidget {
                     // )
                   ],
                 ),
-                //SizedBox(height: 70),
+                SizedBox(height: 70),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
