@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class confirm_booking extends StatelessWidget {
+class confirm_booking extends StatefulWidget {
   const confirm_booking({Key? key}) : super(key: key);
+
+  @override
+  State<confirm_booking> createState() => _confirm_bookingState();
+}
+
+class _confirm_bookingState extends State<confirm_booking> {
+
+  double mul = 1.00;
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +23,10 @@ class confirm_booking extends StatelessWidget {
       'Jet Airways',
       'Aditya K',
       'ISPC2018',
-      1800,
+      1800.60,
     ],];
+
+    String price = (details[0][7] * mul).toStringAsFixed(2);
 
     return Scaffold(
         body: Container(
@@ -236,7 +246,9 @@ class confirm_booking extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
-
+                          setState(() {
+                            mul = 4.4;
+                          });
                         },
                         child: Card(
 
@@ -260,7 +272,9 @@ class confirm_booking extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
-
+                          setState(() {
+                            mul = 2.4;
+                          });
                         },
                         child: Card(
 
@@ -285,7 +299,9 @@ class confirm_booking extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: (){
-
+                            setState(() {
+                              mul = 1;
+                            });
                         },
                         child: Card(
 
@@ -312,7 +328,7 @@ class confirm_booking extends StatelessWidget {
 
               Column(
                 children: [
-                  Text('${details[0][7]*3}',style: TextStyle(
+                  Text('${price}',style: TextStyle(
                     fontSize: 22,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
