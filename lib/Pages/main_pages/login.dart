@@ -205,7 +205,7 @@ class _loginState extends State<login> {
                                     else {
                                       print('Valid Password');
                                       Navigator.pushReplacementNamed(context, 'bottom_bar', arguments: {
-                                        "user_id" : data['_id']
+                                        "data" : data
                                       });
                                     }
 

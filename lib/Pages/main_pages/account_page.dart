@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 
 class Account extends StatefulWidget {
-  const Account({Key? key}) : super(key: key);
+
+  const Account({Key? key, required this.data}) : super(key: key);
+
+  final Map data;
 
   @override
   _AccountState createState() => _AccountState();
@@ -74,7 +77,9 @@ class _AccountState extends State<Account> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TextButton.icon(onPressed: () {
-                            Navigator.pushNamed(context, 'edit_account');
+                            Navigator.pushNamed(context, 'edit_account', arguments: {
+                              'data': widget.data,
+                            });
                           }, icon: Icon(Icons.edit,color: Colors.white,
                               size: 25.0,), label: Text('\t\t\t\t\t''Edit Info',
                               style: TextStyle(
@@ -99,44 +104,7 @@ class _AccountState extends State<Account> {
                       ),
                     ),
                     ),
-                // SizedBox(height: 10),
-                // Card(
-                //   color:Colors.black,
-                //   shadowColor:Colors.white,
-                //   elevation:8,
-                //   shape:RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0)),
-                //   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
-                //   child: Padding(
-                //     padding: const EdgeInsets.fromLTRB(15,10,20,10),
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: <Widget>[
-                //         TextButton.icon(onPressed: () {
-                //           Navigator.pushReplacementNamed(context, 'transactions');
-                //         }, icon: Icon(Icons.ac_unit_outlined,color: Colors.white,
-                //           size: 25.0,), label: Text('\t\t\t\t\t''Travel History ',
-                //           style: TextStyle(
-                //             fontSize: 20,fontFamily: 'poppins',
-                //             fontWeight: FontWeight.w500,
-                //             color: Colors.white,
-                //           ),
-                //         ),),
-                //
-                //         Card(
-                //           child: Padding(
-                //             padding: const EdgeInsets.all(6.0),
-                //             child: Icon(Icons.arrow_forward_ios_rounded,
-                //                 color:Colors.white),
-                //           ),
-                //           elevation: 2,
-                //           shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                //           color: Colors.black,
-                //
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
+
                 Card(
                   color:Colors.black,
                   // shadowColor:Colors.white,

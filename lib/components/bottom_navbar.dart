@@ -43,7 +43,7 @@ class _NavBarState extends State<NavBar> {
       main_booking( data: widget.data),
       Points(),
       Transactions(),
-      Account()
+      Account(data: widget.data)
 
     ];
   }

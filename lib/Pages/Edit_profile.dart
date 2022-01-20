@@ -16,17 +16,17 @@ class Editprofile extends StatefulWidget {
 class _EditprofileState extends State<Editprofile> {
   PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
+  Map data={};
 
 
-  Future<http.Response> edit_userInfo(String name, String password, String mobile_no) async {
-    return http.post(Uri.parse('http://10.0.2.2:3001/users/signup'),
+  Future<http.Response> edit_userInfo(String user_id, String name, String mobile_no) async {
+    return http.patch(Uri.parse('http://10.0.2.2:3001/users/${user_id}'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: json.encode(<String, String>{
         'name': name,
         'mobile_no': mobile_no,
-        'password': password
       }),
     );
 
@@ -34,6 +34,8 @@ class _EditprofileState extends State<Editprofile> {
 
   @override
   Widget build(BuildContext context) {
+    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
 
     final Cname = TextEditingController();
     final Cpassword = TextEditingController();
@@ -159,7 +161,7 @@ class _EditprofileState extends State<Editprofile> {
                       String password = Cpassword.text;
                       String phoneNo = CphoneNo.text;
 
-                      http.Response response = await edit_userInfo
+                      // http.Response response = await edit_userInfo(name, phoneNo);
 
                     },
                       shape: RoundedRectangleBorder(

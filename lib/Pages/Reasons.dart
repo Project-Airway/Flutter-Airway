@@ -20,10 +20,13 @@ class _ReasonsState extends State<Reasons> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/bg-common-main.png'),
-                  fit:BoxFit.fill,
+                  fit:BoxFit.cover,
 
                 ),
+
               ),
+                width: double.infinity,
+                height: double.infinity,
               padding:EdgeInsets.symmetric(horizontal: 15.0,vertical:0.0),
               child: SingleChildScrollView(
                   child:Column(
@@ -60,6 +63,7 @@ class _ReasonsState extends State<Reasons> {
                      ),
                     ),
                           CheckboxListTile(
+                            selectedTileColor:  Colors.red,
                             title: Text("Change of Plans",
                               style: TextStyle(
                                 fontFamily: 'poppins',
