@@ -20,7 +20,7 @@ import 'package:airway_flutter/components/Transaction_Card.dart';
 import 'package:airway_flutter/components/Transactions_Builder.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'user_account',
+  initialRoute: 'faq',
 
   routes: {
    // '/': (context) => loading(),
