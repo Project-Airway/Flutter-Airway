@@ -153,7 +153,9 @@ class _AccountState extends State<Account> {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pop(context);
+                    },
                   ),
                 ),
                 SizedBox(height: 0,),

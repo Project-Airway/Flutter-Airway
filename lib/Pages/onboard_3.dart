@@ -225,7 +225,7 @@ class _onboard_3State extends State<onboard_3> {
                                     // else {
                                     //   print('Valid Password');
                                       Navigator.pushReplacementNamed(context, 'bottom_bar', arguments: {
-                                        "user_id" : data['_id']
+                                        "data" : data
                                       });
                                     // }
 
