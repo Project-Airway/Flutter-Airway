@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 void main()=>runApp(MaterialApp(
     home:Editprofile()
 ));
@@ -14,121 +16,217 @@ class Editprofile extends StatefulWidget {
 class _EditprofileState extends State<Editprofile> {
   PickedFile? _imageFile;
   final ImagePicker _picker = ImagePicker();
+
+
+  Future<http.Response> edit_userInfo(String name, String password, String mobile_no) async {
+    return http.post(Uri.parse('http://10.0.2.2:3001/users/signup'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: json.encode(<String, String>{
+        'name': name,
+        'mobile_no': mobile_no,
+        'password': password
+      }),
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    final name = TextEditingController();
+    final password = TextEditingController();
+    final phoneNo = TextEditingController();
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body:Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image:AssetImage('assets/bg-common-main.png'),
-            fit:BoxFit.cover,
+      body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/bg-common-main.png'),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
 
-        padding:EdgeInsets.symmetric(horizontal: 30,vertical: 30),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(height: 100.0,),
-              Text(
-                'Edit Account',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.w900,
-                  color:Colors.white,
-                  letterSpacing: 2.0,
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 50.0,),
+                Text(
+                  'Edit Account',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                  ),
                 ),
-              ),
-              SizedBox(height: 50,),
-              imageProfile(),
-              SizedBox(height: 50,),
-              nameTextField(),
-              SizedBox(height: 30),
-              EmailTextField(),
-              SizedBox(height: 30),
-              phonenoTextField(),
-              SizedBox(height:25),
-              Row(
-                children: [
-                  SizedBox(height: 20.0,),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RaisedButton(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(38,5,38,5),
-                          child: Text('okay',
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontFamily: 'poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,),
-                        ),
-                        color:Color.fromRGBO(218, 165, 32, 2),
-
-                        onPressed: () {
-
-                        },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                      )
-                    ],
+                SizedBox(height: 20,),
+                imageProfile(),
+                SizedBox(height: 50,),
+                TextFormField(
+                  controller: name,
+                  decoration: InputDecoration(
+                    fillColor: Color.fromRGBO(53, 57, 53, 1),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.deepPurple,
+                          width: 2,
+                        )),
+                    prefixIcon: Icon(
+                      Icons.person,
+                      color: Colors.white70,
+                    ),
+                    labelText: "Full Name",
+                    //helperText: "Name can't be empty",
+                    hintText: "Name",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(width:10.0,),
-                      RaisedButton(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(20,5,20,5),
-                          child: Text('Cancel',
-                            style: TextStyle(
-                              fontSize: 23,
-                              fontFamily: 'poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,),
-                        ),
-                        color:Colors.grey[100],
-
-                        onPressed: () {
-
-                        },
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)),
-                      )
-                    ],
+                ),
+                SizedBox(height: 30),
+                TextFormField(
+                  controller: password,
+                  decoration: InputDecoration(
+                    fillColor: Color.fromRGBO(53, 57, 53, 1),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.deepPurple,
+                          width: 2,
+                        )),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Colors.white70,
+                    ),
+                    labelText: "Password",
+                    //helperText: "Email can't be empty",
+                    hintText: "Password",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
-                ],
-              ),
-            ]
-        ),
+                ),
+                SizedBox(height: 30),
+                TextFormField(
+                  controller: phoneNo,
+                  decoration: InputDecoration(
+                    fillColor: Color.fromRGBO(53, 57, 53, 1),
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.teal,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.deepPurple,
+                          width: 2,
+                        )),
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.white70,
+                    ),
+                    labelText: "Phone no",
+                    // helperText: "phone no can't be empty",
+                    hintText: "Phone no",
+                    labelStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 25),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    RaisedButton(onPressed: () {
+                      Navigator.pop(context);
+                    },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                              color: Color.fromRGBO(221, 195, 102, 1), width: 4)
+                      ),
+
+                      color: Color.fromRGBO(221, 195, 102, 1),
+
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Text('Okay', style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24,
+                          color: Color.fromRGBO(20, 20, 20, 1),
+                        ),),
+                      ),
+                    ),
+
+
+                    RaisedButton(onPressed: () {
+                      Navigator.pop(context);
+                    },
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          side: BorderSide(
+                              color: Color.fromRGBO(221, 195, 102, 1), width: 4)
+                      ),
+
+                      color: Color.fromRGBO(255, 228, 211, 0),
+
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Text('Back', style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: 24,
+                          color: Color.fromRGBO(221, 195, 102, 1),
+                        ),),
+                      ),
+                    ),
+                  ],
+                ),
+              ]
+          )
       ),
     );
   }
-  Widget imageProfile(){
+
+  Widget imageProfile() {
     return Center(
       child: Stack(
         children: [
           CircleAvatar(
               radius: 60.0,
-              backgroundImage:_imageFile==null?
-            AssetImage('assets/123.jpg'):
-            FileImage(File(_imageFile!.path))as ImageProvider
+              backgroundImage: _imageFile == null ?
+              AssetImage('assets/123.jpg') :
+              FileImage(File(_imageFile!.path)) as ImageProvider
           ),
           Positioned(
             bottom: 20.0,
             right: 20.0,
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  builder:((builder)=>bottomSheet()),
+                  builder: ((builder) => bottomSheet()),
                 );
               },
-              child:Icon(
+              child: Icon(
                 Icons.add_a_photo,
                 color: Colors.teal,
                 size: 28.0,
@@ -139,10 +237,14 @@ class _EditprofileState extends State<Editprofile> {
       ),
     );
   }
-  Widget bottomSheet(){
+
+  Widget bottomSheet() {
     return Container(
       height: 100.0,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       margin: EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 20,
@@ -151,7 +253,7 @@ class _EditprofileState extends State<Editprofile> {
         children: [
           Text(
             "Choose Profile Photo",
-            style:TextStyle(
+            style: TextStyle(
               fontSize: 20.0,
             ),
           ),
@@ -162,18 +264,18 @@ class _EditprofileState extends State<Editprofile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FlatButton.icon(
-                  onPressed:(){
+                  onPressed: () {
                     takephoto(ImageSource.camera);
-                  } ,
-                  icon:Icon(Icons.camera) ,
+                  },
+                  icon: Icon(Icons.camera),
                   label: Text('camera')
               ),
               FlatButton.icon(
-                  onPressed:(){
+                  onPressed: () {
                     takephoto(ImageSource.gallery);
-                  } ,
-                  icon:Icon(Icons.image) ,
-                  label: Text('Galery')
+                  },
+                  icon: Icon(Icons.image),
+                  label: Text('Gallery')
               ),
             ],
           ),
@@ -181,101 +283,13 @@ class _EditprofileState extends State<Editprofile> {
       ),
     );
   }
+
   void takephoto(ImageSource source) async {
     final pickedFile = await _picker.getImage(
-      source:source,
+      source: source,
     );
     setState(() {
-      _imageFile=pickedFile;
+      _imageFile = pickedFile;
     });
   }
-  Widget nameTextField()
-  {
-    return TextFormField(
-      decoration:InputDecoration(
-        fillColor:Color.fromRGBO(53,57,53,1),
-        filled:true,
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color:Colors.teal,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color:Colors.deepPurple,
-              width: 2,
-            )),
-        prefixIcon: Icon(
-          Icons.person,
-          color:Colors.white70,
-        ),
-        labelText: "Full Name",
-        //helperText: "Name can't be empty",
-        hintText:"Name",
-        labelStyle: TextStyle(
-          color:Colors.white,
-        ),
-      ),
-    );
-  }
-  Widget EmailTextField()
-  {
-    return TextFormField(
-      decoration:InputDecoration(
-        fillColor:Color.fromRGBO(53,57,53,1),
-        filled:true,
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color:Colors.teal,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color:Colors.deepPurple,
-              width: 2,
-            )),
-        prefixIcon: Icon(
-          Icons.email,
-          color:Colors.white70,
-        ),
-        labelText: "Email",
-        //helperText: "Email can't be empty",
-        hintText:"Email",
-        labelStyle: TextStyle(
-          color:Colors.white,
-        ),
-      ),
-    );
-  }
-  Widget phonenoTextField()
-  {
-    return TextFormField(
-      decoration:InputDecoration(
-        fillColor:Color.fromRGBO(53,57,53,1),
-        filled:true,
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color:Colors.teal,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color:Colors.deepPurple,
-              width: 2,
-            )),
-        prefixIcon: Icon(
-          Icons.phone,
-          color:Colors.white70,
-        ),
-        labelText: "phone no",
-       // helperText: "phone no can't be empty",
-        hintText:"phone no",
-        labelStyle: TextStyle(
-          color:Colors.white,
-        ),
-      ),
-    );
-  }
 }
-
-
