@@ -35,9 +35,9 @@ class _EditprofileState extends State<Editprofile> {
   @override
   Widget build(BuildContext context) {
 
-    final name = TextEditingController();
-    final password = TextEditingController();
-    final phoneNo = TextEditingController();
+    final Cname = TextEditingController();
+    final Cpassword = TextEditingController();
+    final CphoneNo = TextEditingController();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -68,7 +68,7 @@ class _EditprofileState extends State<Editprofile> {
                 imageProfile(),
                 SizedBox(height: 50,),
                 TextFormField(
-                  controller: name,
+                  controller: Cname,
                   decoration: InputDecoration(
                     fillColor: Color.fromRGBO(53, 57, 53, 1),
                     filled: true,
@@ -96,7 +96,7 @@ class _EditprofileState extends State<Editprofile> {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
-                  controller: password,
+                  controller: Cpassword,
                   decoration: InputDecoration(
                     fillColor: Color.fromRGBO(53, 57, 53, 1),
                     filled: true,
@@ -124,7 +124,7 @@ class _EditprofileState extends State<Editprofile> {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
-                  controller: phoneNo,
+                  controller: CphoneNo,
                   decoration: InputDecoration(
                     fillColor: Color.fromRGBO(53, 57, 53, 1),
                     filled: true,
@@ -154,8 +154,13 @@ class _EditprofileState extends State<Editprofile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    RaisedButton(onPressed: () {
-                      Navigator.pop(context);
+                    RaisedButton(onPressed: () async{
+                      String name = Cname.text;
+                      String password = Cpassword.text;
+                      String phoneNo = CphoneNo.text;
+
+                      http.Response response = await edit_userInfo
+
                     },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
