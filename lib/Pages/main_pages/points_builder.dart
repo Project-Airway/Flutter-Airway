@@ -21,6 +21,11 @@ class _points_historyState extends State<points_history> {
 
   @override
   Widget build(BuildContext context) {
+
+    Color col(String points){
+      int x=int.parse(points);
+      return (x>=0)?(Color.fromRGBO(266, 226, 226, 1)):Color.fromRGBO(182, 62, 123, 1);
+    }
     return Container(
       child: ListView.builder(
         scrollDirection: Axis.vertical,
@@ -28,7 +33,7 @@ class _points_historyState extends State<points_history> {
         itemCount: previous.length,
         itemBuilder: (context,index) {
           return Padding(
-            padding: const EdgeInsets.fromLTRB(30,10,30,0),
+            padding: const EdgeInsets.fromLTRB(30,0,30,20),
             child: Card(
               child: ListTile(
                 onTap: () {},
@@ -39,31 +44,39 @@ class _points_historyState extends State<points_history> {
                       Card(
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Text(previous[index].points),
+                          child: Text(previous[index].points,
+                          style: TextStyle(
+                            color:col(previous[index].points) ,
+                          ),),
                         ),
-                        elevation: 2,
+                        elevation: 8,
                         shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
+                        color: Color.fromRGBO(56, 56, 56, 1)
 
                       ),
-                      Text('Trip to ${previous[index].location}')
+                      Text('Trip to ${previous[index].location}',
+                      style:TextStyle(
+                        color: Colors.white,
+                        fontFamily: "poppins"
+                      ))
                       ,
                       Card(
                         child: Padding(
                           padding: const EdgeInsets.all(6.0),
-                          child: Icon(Icons.arrow_forward_ios_rounded),
+                          child: Icon(Icons.arrow_forward_ios_rounded,
+                          color: Color.fromRGBO(224, 224, 224, 1),),
                         ),
                         elevation: 2,
                         shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
+                        color: Color.fromRGBO(1, 1, 1, 1),
 
                       ),
-
                     ],
                   ),
                 ),
               ),
               elevation: 8,
+              color: Color.fromRGBO(30, 30, 30, 1),
             ),
           );
         },
