@@ -11,11 +11,11 @@ class TransactionDetails extends StatefulWidget {
 class _TransactionDetailsState extends State<TransactionDetails> {
 
    Map data= {};
-   String filler(String status){
-     if(status=='Upcoming')
+   String filler(bool status){
+     if(status!=true)
        return 'assets/ticket_fill_green.png';
-     if(status=='Completed')
-       return 'assets/ticket_fill_yellow.png';
+
+        // return 'assets/ticket_fill_yellow.png';
      return 'assets/ticket_fill_red.png';
    }
    
@@ -23,6 +23,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
 
   Widget build(BuildContext context) {
     data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -72,7 +73,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('Airway Name',style: TextStyle(
+                                  Text('${data['airlineName']}',style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w700,
@@ -102,7 +103,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                                       color: Colors.white
                                   ),),
 
-                                  Text('time',style: TextStyle(
+                                  Text('${data['duration']}',style: TextStyle(
                                       fontSize: 16,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w500,
@@ -128,7 +129,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                                       color: Colors.white
                                   ),),
 
-                                  Image.asset(filler(data['status'])),
+                                  Image.asset(filler(data['cancelled'])),
 
                                   Text('Dest.',style: TextStyle(
                                       fontSize: 14,
@@ -144,7 +145,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('${data['date']}',style: TextStyle(
+                                  Text('${data['dateOfTravel']}'.substring(0,10),style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w700,
@@ -152,7 +153,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                                   ),),
 
 
-                                  Text('${data['time']}',style: TextStyle(
+                                  Text('${data['departuteTime']}',style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w700,
@@ -185,7 +186,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('${data['name']}',style: TextStyle(
+                                  Text('${data['numberOfSeats']}',style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w700,
@@ -193,7 +194,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                                   ),),
 
 
-                                  Text('${data['flightid']}',style: TextStyle(
+                                  Text('${data['flightId']}'.substring(8, 14),style: TextStyle(
                                       fontSize: 18,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w700,
@@ -205,7 +206,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('Passenger name',style: TextStyle(
+                                  Text("No. of seats",style: TextStyle(
                                       fontSize: 14,
                                       fontFamily: 'poppins',
                                       fontWeight: FontWeight.w500,

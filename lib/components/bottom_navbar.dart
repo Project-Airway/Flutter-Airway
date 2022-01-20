@@ -42,7 +42,7 @@ class _NavBarState extends State<NavBar> {
     children = [
       main_booking( data: widget.data),
       Points(),
-      Transactions(),
+      Transactions(data: widget.data),
       Account(data: widget.data)
 
     ];

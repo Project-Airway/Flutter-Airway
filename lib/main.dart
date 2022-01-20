@@ -20,7 +20,7 @@ import 'package:airway_flutter/components/Transaction_Card.dart';
 import 'package:airway_flutter/components/Transactions_Builder.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'login',
+  initialRoute: 'user_onboard1',
 
   routes: {
    // '/': (context) => loading(),
@@ -34,7 +34,7 @@ void main() => runApp(MaterialApp(
     'points_history':(context) => Points(),
     'edit_account':(context) => Editprofile(),
     'faq':(context) => FAQ(),
-    'transactions':(context)=>Transactions(),
+    // 'transactions':(context)=>Transactions(),
     'reasons':(context)=>Reasons(),
     // 'main_booking':(context)=>main_booking(),
     'results':(context)=>results(),
@@ -42,7 +42,7 @@ void main() => runApp(MaterialApp(
     'bottom_bar':(context) => bottom_bar(),
     'edit_acc' : (context) => editInfo(),
     'transact_card':(context)=>TransactionDetails(),
-    'trans_builder':(context)=>TransBuilder(),
+    // 'trans_builder':(context)=>TransBuilder(),
   },
 ));
 
