@@ -32,12 +32,14 @@ dependencies:
   concentric_transition: ^1.0.1
 
 
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.4+4
   expansion_card: ^0.1.0
   http: ^0.13.4
+  roundcheckbox: ^2.0.4+1
 
 dev_dependencies:
   flutter_test:
