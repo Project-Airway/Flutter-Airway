@@ -16,11 +16,11 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SafeArea(
+         child: SafeArea(
           child: Container(
           decoration: BoxDecoration(
           image: DecorationImage(
-          image: AssetImage('assets/Account_1.png'),
+          image: AssetImage('assets/bg-common-main3.png'),
     fit: BoxFit.fitWidth,
                ),
                 ),
@@ -33,20 +33,23 @@ class _AccountState extends State<Account> {
                 style: TextStyle(
                   fontFamily: 'poppins',
                   fontWeight: FontWeight.w600,
-                fontSize:34,
+                  fontSize:34,
+                  color:Colors.white,
                 ),
                 ),
-                SizedBox(height: 20,),
+                // SizedBox(height: 10,),
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/download.png'),
                   radius: 70,
                 ),
+                SizedBox(height:5,),
                 Text(
                   '$name',
                   style: TextStyle(
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
-                    fontSize: 24,
+                    fontSize: 30,
+                    color:Colors.white
                   ),
                 ),
                 Text(
@@ -57,32 +60,38 @@ class _AccountState extends State<Account> {
                     color: Colors.grey[600],
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 20),
                 Card(
+                  shadowColor:Colors.white,
+                  elevation:8,
+                  color:Colors.black,
+                  shape:RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0),),
                   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(15,0,20,0),
+                      padding: const EdgeInsets.fromLTRB(15,10,20,10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TextButton.icon(onPressed: () {
                             Navigator.pushNamed(context, 'edit_account');
-                          }, icon: Icon(Icons.edit,color: Colors.grey[600],
+                          }, icon: Icon(Icons.edit,color: Colors.white,
                               size: 25.0,), label: Text('\t\t\t\t\t''Edit Info',
                               style: TextStyle(
                               fontSize: 20,fontFamily: 'poppins',
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey[800],
+                              color: Colors.white,
                             ),
                           ),),
                           Card(
+                            color: Colors.black,
                             child: Padding(
                               padding: const EdgeInsets.all(6.0),
-                              child: Icon(Icons.arrow_forward_ios_rounded),
+                              child: Icon(Icons.arrow_forward_ios_rounded,
+                                color: Colors.white),
                             ),
                             elevation: 2,
                             shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                            color: Color.fromRGBO(255, 255, 255, 0.9),
+
 
                           ),
                         ],
@@ -91,29 +100,34 @@ class _AccountState extends State<Account> {
                     ),
                 SizedBox(height: 10),
                 Card(
+                  color:Colors.black,
+                  shadowColor:Colors.white,
+                  elevation:8,
+                  shape:RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0)),
                   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(15,0,20,0),
+                    padding: const EdgeInsets.fromLTRB(15,10,20,10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.ac_unit_outlined,color: Colors.grey[600],
+                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.ac_unit_outlined,color: Colors.white,
                           size: 25.0,), label: Text('\t\t\t\t\t''Travel History ',
                           style: TextStyle(
                             fontSize: 20,fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
-                            color: Colors.grey[800],
+                            color: Colors.white,
                           ),
                         ),),
 
                         Card(
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
-                            child: Icon(Icons.arrow_forward_ios_rounded),
+                            child: Icon(Icons.arrow_forward_ios_rounded,
+                                color:Colors.white),
                           ),
                           elevation: 2,
                           shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
+                          color: Colors.black,
 
                         ),
                       ],
@@ -122,28 +136,33 @@ class _AccountState extends State<Account> {
                 ),
                 SizedBox(height: 10),
                 Card(
+                  color:Colors.black,
+                  shadowColor:Colors.white,
+                  elevation:8,
+                  shape:RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0)),
                   margin: EdgeInsets.fromLTRB(25, 0, 25,0),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(15,0,20,0),
+                    padding: const EdgeInsets.fromLTRB(15,10,20,10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.three_p_sharp,color: Colors.grey[600],
+                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.three_p_sharp,color: Colors.white,
                           size: 25.0,), label: Text('\t\t\t\t\t''Get Help ',
                           style: TextStyle(
                             fontSize: 20,fontFamily: 'poppins',
                             fontWeight: FontWeight.w500,
-                            color: Colors.grey[800],
+                            color: Colors.white,
                           ),
                         ),),
                         Card(
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
-                            child: Icon(Icons.arrow_forward_ios_rounded),
+                            child: Icon(Icons.arrow_forward_ios_rounded,
+                            color:Colors.white),
                           ),
                           elevation: 2,
                           shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(5.0),),
-                          color: Color.fromRGBO(255, 255, 255, 0.9),
+                          color: Colors.black,
 
                         ),
                       ],
@@ -173,17 +192,17 @@ class _AccountState extends State<Account> {
                     children: <Widget>[
                       Text('Privacy  Policy  ',
                       style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                         fontSize: 13,fontFamily: 'poppins',
                         fontWeight: FontWeight.w500,
                       ),
                       ),
                       Icon(Icons.info_outline,
-                      color: Colors.grey[1000],
+                      color: Colors.white,
                       ),
                       Text('  Terms & Conditions',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: 13,fontFamily: 'poppins',
                           fontWeight: FontWeight.w500,
                         ),
@@ -198,7 +217,7 @@ class _AccountState extends State<Account> {
                   style: TextStyle(
                     fontSize: 14,fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey[600],
+                    color: Colors.white,
                   ),
                   ),
                 ),
@@ -207,7 +226,7 @@ class _AccountState extends State<Account> {
             ),
       ),
         ),
-    ),
+     ),
       // bottomNavigationBar:bottom_bar()
     );
   }

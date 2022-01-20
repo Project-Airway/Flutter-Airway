@@ -21,7 +21,7 @@ class _EditprofileState extends State<Editprofile> {
       body:Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image:AssetImage('assets/6.jpeg') ,
+            image:AssetImage('assets/bg-common-main.png'),
             fit:BoxFit.cover,
           ),
         ),
@@ -30,34 +30,25 @@ class _EditprofileState extends State<Editprofile> {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20.0,),
+              SizedBox(height: 100.0,),
               Text(
-                'Edit',
+                'Edit Account',
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.w900,
-                  color:Colors.black,
+                  color:Colors.white,
                   letterSpacing: 2.0,
                 ),
               ),
-              Text(
-                'Account',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w900,
-                  color:Colors.black,
-                  letterSpacing: 2.0,
-                ),
-              ),
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
               imageProfile(),
-              SizedBox(height: 20,),
+              SizedBox(height: 50,),
               nameTextField(),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               EmailTextField(),
-              SizedBox(height: 20),
+              SizedBox(height: 30),
               phonenoTextField(),
-              SizedBox(height:30),
+              SizedBox(height:25),
               Row(
                 children: [
                   SizedBox(height: 20.0,),
@@ -66,8 +57,8 @@ class _EditprofileState extends State<Editprofile> {
                     children: [
                       RaisedButton(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(32,18,32,18),
-                          child: Text('Save',
+                          padding: const EdgeInsets.fromLTRB(38,5,38,5),
+                          child: Text('okay',
                             style: TextStyle(
                               fontSize: 23,
                               fontFamily: 'poppins',
@@ -75,23 +66,23 @@ class _EditprofileState extends State<Editprofile> {
                             ),
                             textAlign: TextAlign.center,),
                         ),
-                        color:Colors.pink[400],
+                        color:Color.fromRGBO(218, 165, 32, 2),
 
                         onPressed: () {
 
                         },
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(5)),
                       )
                     ],
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(width:25.0,),
+                      SizedBox(width:10.0,),
                       RaisedButton(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(28,18,28,18),
+                          padding: const EdgeInsets.fromLTRB(20,5,20,5),
                           child: Text('Cancel',
                             style: TextStyle(
                               fontSize: 23,
@@ -106,7 +97,7 @@ class _EditprofileState extends State<Editprofile> {
 
                         },
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(5)),
                       )
                     ],
                   ),
@@ -202,6 +193,8 @@ class _EditprofileState extends State<Editprofile> {
   {
     return TextFormField(
       decoration:InputDecoration(
+        fillColor:Color.fromRGBO(53,57,53,1),
+        filled:true,
         border: OutlineInputBorder(
           borderSide: BorderSide(
             color:Colors.teal,
@@ -209,16 +202,19 @@ class _EditprofileState extends State<Editprofile> {
         ),
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color:Colors.orange,
+              color:Colors.deepPurple,
               width: 2,
             )),
         prefixIcon: Icon(
           Icons.person,
-          color:Colors.black,
+          color:Colors.white70,
         ),
-        labelText: "Name",
-        helperText: "Name can't be empty",
+        labelText: "Full Name",
+        //helperText: "Name can't be empty",
         hintText:"Name",
+        labelStyle: TextStyle(
+          color:Colors.white,
+        ),
       ),
     );
   }
@@ -226,6 +222,8 @@ class _EditprofileState extends State<Editprofile> {
   {
     return TextFormField(
       decoration:InputDecoration(
+        fillColor:Color.fromRGBO(53,57,53,1),
+        filled:true,
         border: OutlineInputBorder(
           borderSide: BorderSide(
             color:Colors.teal,
@@ -233,16 +231,19 @@ class _EditprofileState extends State<Editprofile> {
         ),
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color:Colors.orange,
+              color:Colors.deepPurple,
               width: 2,
             )),
         prefixIcon: Icon(
           Icons.email,
-          color:Colors.black,
+          color:Colors.white70,
         ),
         labelText: "Email",
-        helperText: "Email can't be empty",
+        //helperText: "Email can't be empty",
         hintText:"Email",
+        labelStyle: TextStyle(
+          color:Colors.white,
+        ),
       ),
     );
   }
@@ -250,6 +251,8 @@ class _EditprofileState extends State<Editprofile> {
   {
     return TextFormField(
       decoration:InputDecoration(
+        fillColor:Color.fromRGBO(53,57,53,1),
+        filled:true,
         border: OutlineInputBorder(
           borderSide: BorderSide(
             color:Colors.teal,
@@ -257,16 +260,19 @@ class _EditprofileState extends State<Editprofile> {
         ),
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color:Colors.orange,
+              color:Colors.deepPurple,
               width: 2,
             )),
         prefixIcon: Icon(
           Icons.phone,
-          color:Colors.black,
+          color:Colors.white70,
         ),
         labelText: "phone no",
-        helperText: "phone no can't be empty",
+       // helperText: "phone no can't be empty",
         hintText:"phone no",
+        labelStyle: TextStyle(
+          color:Colors.white,
+        ),
       ),
     );
   }
