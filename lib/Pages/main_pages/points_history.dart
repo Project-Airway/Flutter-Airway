@@ -61,62 +61,59 @@ class _UserState extends State<Points> {
   Widget build(BuildContext context) {
     return new Scaffold(
         body:
-        Center(
-          child: SafeArea(
-            child:Container(
+            Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/points_bg.png'),
+                  image: AssetImage('assets/bg-common-main.png'),
                   fit: BoxFit.fitWidth,
                 ),
               ),
               // width: 400+10,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(height: 20,),
-                  Center(
-                    child: Container(
+                  Image.asset('assets/logo2.png'),
+                   Container(
                       child: Text(
-                        'Points\nEarned',
+                        'Points Earned',
                         style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 4.0,
-                          color: Colors.black,
+                          color: Colors.white,
+                          fontFamily: "poppins"
                         ),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 40),
-                  Center(
-                    child: Container(
-                      child:Card(
-                        child:
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(40,20,40,20),
-                          child: Text(
-                            '$x\nTotal Points\nEarned',
-                            style: TextStyle(
-                              fontSize: 30,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        elevation: 20,
-                        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20.0),),
-                        color: Color.fromRGBO(255, 255, 255, 0.9),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/leaf.png'),
+                        fit: BoxFit.cover,
                       ),
                     ),
+                    child: Center(
+                      child: Text("130",
+                      style: TextStyle(
+                          color: Color.fromRGBO(221, 195, 102, 1),
+                        fontFamily: "poppins",
+                        fontSize: 28
+                      ),),
+                    ),
                   ),
-                  SizedBox(height: 45),
                   Center(
-                    child: Text('Points history',
+                    child: Text('Points History',
                       style: TextStyle(
                         fontSize: 20,
+                        fontFamily: "poppins",
                         fontWeight: FontWeight.w600,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -124,8 +121,6 @@ class _UserState extends State<Points> {
                 ],
               ),
             ),
-          ),
-        ),
         // bottomNavigationBar:bottom_bar()
     );
   }

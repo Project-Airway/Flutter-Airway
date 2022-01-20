@@ -73,14 +73,17 @@ class _NavBarState extends State<NavBar> {
 
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(20, 20, 20, 1),
             icon: Icon(Icons.pages,),
             label: 'Points',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(20, 20, 20, 1),
             icon: Icon(Icons.ac_unit_rounded,),
             label: 'History',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(20, 20, 20, 1),
             icon: Icon(Icons.account_box_rounded,),
             label: 'Account',
           )
