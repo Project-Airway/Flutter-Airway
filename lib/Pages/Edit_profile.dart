@@ -32,10 +32,23 @@ class _EditprofileState extends State<Editprofile> {
 
   }
 
+  Future<http.Response> change_password(String user_id, String password) async {
+    return http.patch(Uri.parse('http://10.0.2.2:3001/users/${user_id}/PassUp'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: json.encode(<String, String>{
+        'password': password,
+      }),
+    );
+
+  }
+
   @override
   Widget build(BuildContext context) {
     data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
-    print(data);
+    data = data['data'];
+    print(data['userId']);
 
     final Cname = TextEditingController();
     final Cpassword = TextEditingController();
@@ -161,7 +174,26 @@ class _EditprofileState extends State<Editprofile> {
                       String password = Cpassword.text;
                       String phoneNo = CphoneNo.text;
 
-                      // http.Response response = await edit_userInfo(name, phoneNo);
+                      if(name == '' || name == null ){
+                        name = data['name'];
+                      }
+                      if(phoneNo == '' || phoneNo == null){
+                        print('entered if');
+                        phoneNo = data['phone'].toString();
+                      }
+
+                      print(password);
+
+                      if(password != '') {
+                        print('entered if password');
+                        http.Response response = await change_password(data['userId'],password);
+                        Map passData = json.decode(response.body);
+                        print(passData);
+                      }
+
+                      http.Response response = await edit_userInfo(data['userId'],name, phoneNo);
+                      Map resData = json.decode(response.body);
+                      print(resData);
 
                     },
                       shape: RoundedRectangleBorder(

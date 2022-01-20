@@ -8,15 +8,20 @@ class Account extends StatefulWidget {
 
   final Map data;
 
+
   @override
   _AccountState createState() => _AccountState();
 }
 
 class _AccountState extends State<Account> {
+
   @override
   String name='John Doe';
   String email='JohnDoe@ypp.com';
   Widget build(BuildContext context) {
+    Map Fdata = {};
+    Fdata = widget.data['data'];
+    print(Fdata);
     return Scaffold(
       body: Center(
          child: SafeArea(
@@ -47,7 +52,7 @@ class _AccountState extends State<Account> {
                 ),
                 SizedBox(height:5,),
                 Text(
-                  '$name',
+                  '${Fdata['name']}',
                   style: TextStyle(
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
@@ -56,7 +61,7 @@ class _AccountState extends State<Account> {
                   ),
                 ),
                 Text(
-                  '$email',
+                  '${Fdata['email']}',
                   style: TextStyle(
                     fontSize: 20,fontFamily: 'poppins',
                     fontWeight: FontWeight.w600,
@@ -77,9 +82,7 @@ class _AccountState extends State<Account> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           TextButton.icon(onPressed: () {
-                            Navigator.pushNamed(context, 'edit_account', arguments: {
-                              'data': widget.data,
-                            });
+                            Navigator.pushNamed(context, 'edit_account', arguments: widget.data);
                           }, icon: Icon(Icons.edit,color: Colors.white,
                               size: 25.0,), label: Text('\t\t\t\t\t''Edit Info',
                               style: TextStyle(
