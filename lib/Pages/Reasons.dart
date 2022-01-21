@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Reasons extends StatefulWidget {
   const Reasons({Key? key}) : super(key: key);
@@ -14,7 +16,16 @@ class _ReasonsState extends State<Reasons> {
   bool?  checkedValue1=false;
   bool?  checkedValue2=false;
   bool?  checkedValue3=false;
+  String msg = '';
+
+  Future<http.Response> delete_ticket(String user_id, String ticket_id) async {
+    return http.patch(Uri.parse('http://10.0.2.2:3001/booking/${user_id}/cancelTicket/${ticket_id}'));
+  }
+  Map data = {};
+
   Widget build(BuildContext context) {
+    data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
     return Scaffold(
       body: Container(
               decoration: BoxDecoration(
@@ -48,7 +59,21 @@ class _ReasonsState extends State<Reasons> {
                 textAlign: TextAlign.center,
               ),
                         ),
+
               SizedBox(height: 100,),
+
+                        Center(
+                          child: Text('${msg}',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "poppins",
+                              color: Color.fromRGBO(174, 32, 62, 1),
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+
+
               Container(
                       margin: EdgeInsets.fromLTRB(25, 20, 25, 20),
                   color: Color.fromRGBO(20, 20, 20, 1),
@@ -136,8 +161,17 @@ class _ReasonsState extends State<Reasons> {
                         Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    RaisedButton(onPressed: (){
-                      Navigator.pop(context);
+                    RaisedButton(onPressed: () async{
+                      print(data['_id']);
+                      print(data['userId']);
+                      http.Response response = await delete_ticket( data['userId'], data['_id']);
+                      Map ticket_data = json.decode(response.body);
+                      print(ticket_data);
+
+                      setState(() {
+                        msg = ticket_data['message'];
+                      });
+
                     },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),

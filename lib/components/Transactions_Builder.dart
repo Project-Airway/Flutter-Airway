@@ -12,9 +12,10 @@ class TransBuilder extends StatefulWidget {
 
 class _TransBuilderState extends State<TransBuilder> {
 
-  String filler(String status) {
-    if (status == 'Upcoming') return 'assets/ticket_fill_green.png';
-    if (status == 'Completed') return 'assets/ticket_fill_yellow.png';
+  String filler(bool status) {
+    if (status == false) {
+      return 'assets/ticket_fill_green.png';
+    }
     return 'assets/ticket_fill_red.png';
   }
 
@@ -116,8 +117,8 @@ class _TransBuilderState extends State<TransBuilder> {
                                             height: 20,
                                           ),
 
-                                          Image.asset('assets/ticket_fill_2.png'),
-                                          // Image.asset(filler(alltransactions[index].status)),
+                                          // Image.asset('assets/ticket_fill_2.png'),
+                                          Image.asset(filler(data?[index]['cancelled'])),
                                         ],
                                       ),
                                       Column(

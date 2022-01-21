@@ -191,7 +191,7 @@ class _AccountState extends State<Account> {
                 SizedBox(height: 10,),
 
                 Center(
-                  child: Text('© Airway 2020',
+                  child: Text('© Airway 2022',
                   style: TextStyle(
                     fontSize: 14,fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,

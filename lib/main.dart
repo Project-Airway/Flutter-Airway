@@ -14,6 +14,7 @@ import 'package:airway_flutter/Pages/Reasons.dart';
 import 'package:airway_flutter/Pages/main_pages/booking_1.dart';
 import 'package:airway_flutter/Pages/main_pages/search_results.dart';
 import 'package:airway_flutter/Pages/main_pages/booking_confirm.dart';
+import 'package:airway_flutter/Pages/main_pages/success.dart';
 import 'package:airway_flutter/Pages/main_pages/edit_acc.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 import 'package:airway_flutter/components/Transaction_Card.dart';
@@ -43,6 +44,7 @@ void main() => runApp(MaterialApp(
     'edit_acc' : (context) => editInfo(),
     'transact_card':(context)=>TransactionDetails(),
     // 'trans_builder':(context)=>TransBuilder(),
+    'success': (context) => Success(),
   },
 ));
 

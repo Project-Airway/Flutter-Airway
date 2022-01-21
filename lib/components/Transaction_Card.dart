@@ -23,7 +23,6 @@ class _TransactionDetailsState extends State<TransactionDetails> {
 
   Widget build(BuildContext context) {
     data = data.isNotEmpty ? data : ModalRoute.of(context)?.settings.arguments as Map;
-    print(data);
     return Scaffold(
         body: Container(
             decoration: BoxDecoration(
@@ -226,7 +225,7 @@ class _TransactionDetailsState extends State<TransactionDetails> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   RaisedButton(onPressed: (){
-                                    Navigator.pushNamed(context, 'reasons');
+                                    Navigator.pushNamed(context, 'reasons', arguments: data);
                                   },
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),

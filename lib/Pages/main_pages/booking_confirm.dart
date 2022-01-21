@@ -282,7 +282,9 @@ class _confirm_bookingState extends State<confirm_booking> {
                       print(details);
                       http.Response response = await book_ticket(details, seats, user_id, date);
                       Map ticket_data = json.decode(response.body);
-                      print(ticket_data);
+
+                      Navigator.pushReplacementNamed(context, 'success');
+
                     },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
