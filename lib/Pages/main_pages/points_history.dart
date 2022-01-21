@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:airway_flutter/pages/main_pages/info.dart';
 import 'package:airway_flutter/pages/main_pages/points_builder.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class Points extends StatefulWidget {
-  const Points({Key? key}) : super(key: key);
-
+  const Points({Key? key, required this.data}) : super(key: key);
+  final Map data;
   @override
   _UserState createState() => _UserState();
 }
+
 
 class _UserState extends State<Points> {
   var x=0;
@@ -19,8 +21,17 @@ class _UserState extends State<Points> {
     Info(points: '80', location: 'Chennai'),
     Info(points: '-20', location: 'Delhi'),
   ];
+  int total=0;
 
-  Widget printlast(prev){
+  Future<List> get_tickets(String user_id) async {
+    http.Response response = await http
+        .get(Uri.parse('http://10.0.2.2:3001/booking/${user_id}/getTickets'));
+    // print(response.body);
+    List passData = json.decode(response.body);
+    print(passData);
+    return passData;
+  }
+   Widget printlast(prev){
     return Card(
       margin: EdgeInsets.fromLTRB(100, 20, 0, 0),
       child: Row(
@@ -57,9 +68,10 @@ class _UserState extends State<Points> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
         body:
             Container(
               decoration: BoxDecoration(
@@ -116,7 +128,7 @@ class _UserState extends State<Points> {
                       ),
                     ),
                   ),
-                  points_history()
+                  points_history( data: widget.data)
                 ],
               ),
             ),

@@ -14,20 +14,12 @@ class Transactions extends StatefulWidget {
   _TransactionsState createState() => _TransactionsState();
 }
 
-Future<http.Response> change_password(String user_id) async {
-  return http.get(Uri.parse('http://10.0.2.2:3001/booking/${user_id}/getTickets'));
-}
 
 class _TransactionsState extends State<Transactions> {
 
   @override
   Widget build(BuildContext context) {
-    Map Fdata = widget.data['data'];
-
-
-
-
-    return new Scaffold(
+       return new Scaffold(
       backgroundColor: Color.fromRGBO(33, 33, 33, 1),
       body:SafeArea(
         child: Container(
@@ -60,7 +52,13 @@ class _TransactionsState extends State<Transactions> {
                   ),
                 ),
                 SizedBox(height: 30,),
-                TransBuilder(data: widget.data)
+
+                SingleChildScrollView(
+                  child: SizedBox(
+                    height: 420,
+                    child: TransBuilder(data: widget.data),
+                  ),
+                )
                 ],
             ),
           ),

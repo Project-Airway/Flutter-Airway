@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class confirm_booking extends StatefulWidget {
   const confirm_booking({Key? key}) : super(key: key);
@@ -10,23 +12,47 @@ class confirm_booking extends StatefulWidget {
 class _confirm_bookingState extends State<confirm_booking> {
 
   double mul = 1.00;
+  String date = '';
+  Map tickets = {};
+  Map details = {};
+  String seats = '';
+  String user_id = '';
+
+  Future<http.Response> book_ticket(Map data, String seats, String user_id, String date) async {
+    print(data['id']);
+    return http.post(Uri.parse('http://10.0.2.2:3001/booking/${user_id}/book'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: json.encode(<String, String>{
+        'id': data['id'],
+        'src': data['src'],
+        'dest': data['dest'],
+        'date1': date,
+        'numberOfSeats': seats,
+        'depTime': data['depTime'],
+        'arrTime': data['arrTime'],
+        'duration': data['duration'],
+        'airlineCodes': data['airlineCodes'],
+        'airlineName': data['airlineName'],
+        'totalPriceUsd': data['totalPriceUsd'].toString()
+      }),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
 
-    List details = [
-    [
-      'Bangalore',
-      'Chennai',
-      '30 March',
-      '08:00',
-      'Jet Airways',
-      'Aditya K',
-      'ISPC2018',
-      1800.60,
-    ],];
+    tickets = tickets.isNotEmpty ? tickets : ModalRoute.of(context)?.settings.arguments as Map;
+    details = tickets['data'];
+    date = tickets['date'];
+    seats = tickets['seats'];
+    user_id = tickets['user_id'];
 
-    String price = (details[0][7] * mul).toStringAsFixed(2);
+
+    print(tickets);
+    print(date);
 
     return Scaffold(
         body: Container(
@@ -77,18 +103,18 @@ class _confirm_bookingState extends State<confirm_booking> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('${details[0][4]}',style: TextStyle(
+              Text('${details['airlineName']}',style: TextStyle(
                 fontSize: 18,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w700,
                   color: Colors.white
               ),),],),
-
+              SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Flight info',style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
                       color: Colors.white
@@ -100,21 +126,21 @@ class _confirm_bookingState extends State<confirm_booking> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${details[0][0]}',style: TextStyle(
+                  Text('${details['src']}',style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
                       color: Colors.white
                   ),),
 
-                  Text('${details[0][3]} hr',style: TextStyle(
+                  Text('    ${details['duration']}',style: TextStyle(
                     fontSize: 16,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
                       color: Colors.white
                   ),),
 
-                  Text('${details[0][1]}',style: TextStyle(
+                  Text('${details['dest']}',style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -149,7 +175,7 @@ class _confirm_bookingState extends State<confirm_booking> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${details[0][2]}',style: TextStyle(
+                  Text('${details['depTime']}',style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -157,7 +183,7 @@ class _confirm_bookingState extends State<confirm_booking> {
                   ),),
 
 
-                  Text('07:30 AM',style: TextStyle(
+                  Text('${seats}',style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -169,7 +195,7 @@ class _confirm_bookingState extends State<confirm_booking> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Date',style: TextStyle(
+              Text('Departure time',style: TextStyle(
                 fontSize: 14,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w500,
@@ -177,7 +203,7 @@ class _confirm_bookingState extends State<confirm_booking> {
               ),),
 
 
-              Text('Departure time',style: TextStyle(
+              Text('No. of seats',style: TextStyle(
                 fontSize: 14,
                 fontFamily: 'poppins',
                 fontWeight: FontWeight.w500,
@@ -190,7 +216,7 @@ class _confirm_bookingState extends State<confirm_booking> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('${details[0][5]}',style: TextStyle(
+                  Text('${date}'.substring(0,10),style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -198,7 +224,7 @@ class _confirm_bookingState extends State<confirm_booking> {
                   ),),
 
 
-                  Text('${details[0][6]}',style: TextStyle(
+                  Text('${details['id']}'.substring(8,13),style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -210,7 +236,7 @@ class _confirm_bookingState extends State<confirm_booking> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Passenger name',style: TextStyle(
+                  Text('Date',style: TextStyle(
                     fontSize: 14,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w500,
@@ -228,107 +254,9 @@ class _confirm_bookingState extends State<confirm_booking> {
 
               SizedBox(height: 20,),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Select class',style: TextStyle(
-                    fontSize: 22,
-                    fontFamily: 'poppins',
-                    fontWeight: FontWeight.w700,
-                      color: Colors.white
-                  ),),],
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            mul = 4.4;
-                          });
-                        },
-                        child: Card(
-
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text('A'),
-
-                          ),
-                          color: Colors.deepPurple,
-                        ),
-                      ),
-                      Text('First\nClass',style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'poppins',
-                        fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),textAlign: TextAlign.center),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                          setState(() {
-                            mul = 2.4;
-                          });
-                        },
-                        child: Card(
-
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text('B'),
-
-                          ),
-                          color: Colors.pinkAccent,
-                        ),
-                      ),
-                      Text('Business\nClass',style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'poppins',
-                        fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                            setState(() {
-                              mul = 1;
-                            });
-                        },
-                        child: Card(
-
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Text('C'),
-
-                          ),
-                          color: Colors.green,
-                        ),
-                      ),
-                      Text('Economy\nClass',style: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'poppins',
-                        fontWeight: FontWeight.w500,
-                          color: Colors.white
-                      ),textAlign: TextAlign.center),
-                    ],
-                  ),
-
-                ],
-              ),
-              SizedBox(height: 20,),
-
               Column(
                 children: [
-                  Text('${price}',style: TextStyle(
+                  Text('₹ ${(details['totalPriceUsd']* 75).toStringAsFixed(0)}',style: TextStyle(
                     fontSize: 22,
                     fontFamily: 'poppins',
                     fontWeight: FontWeight.w700,
@@ -350,8 +278,11 @@ class _confirm_bookingState extends State<confirm_booking> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    RaisedButton(onPressed: (){
-                      Navigator.pop(context);
+                    RaisedButton(onPressed: () async{
+                      print(details);
+                      http.Response response = await book_ticket(details, seats, user_id, date);
+                      Map ticket_data = json.decode(response.body);
+                      print(ticket_data);
                     },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),

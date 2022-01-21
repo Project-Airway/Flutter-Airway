@@ -138,7 +138,7 @@ class _TransBuilderState extends State<TransBuilder> {
                                             height: 20,
                                           ),
                                           Text(
-                                            '${(data?[index]['totalPrice'] * 75).toStringAsFixed(2)}',
+                                            '₹ ${(data?[index]['totalPrice'] * 75).toStringAsFixed(0)}',
                                             style: TextStyle(
                                                 fontFamily: 'montserrat',
                                                 fontWeight: FontWeight.w700,

@@ -8,33 +8,21 @@ class results extends StatefulWidget {
 }
 
 class _resultsState extends State<results> {
-
-  List details = [
-    [
-      'Bangalore',
-      'Chennai',
-      '30\nMarch',
-      '08:00',
-      'Jet\nAirways'
-    ],
-    [
-      'Bangalore',
-      'Chennai',
-      '30\nMarch',
-      '08:30',
-      'Peasant\nAirways'
-    ],
-    [
-      'Bangalore',
-      'Chennai',
-      '31\nMarch',
-      '05:30',
-      'Rich AF\nAirways'
-    ],
-  ];
+  Map tickets = {};
+  List  details = [];
+  String date = '';
+  String seats = '';
+  String user_id = '';
 
   @override
   Widget build(BuildContext context) {
+    tickets = tickets.isNotEmpty ? tickets : ModalRoute.of(context)?.settings.arguments as Map;
+    details = tickets['data'];
+    date = tickets['date'];
+    seats = tickets['seats'];
+    user_id = tickets['user_id'];
+
+    print(tickets);
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 33, 33, 1),
       resizeToAvoidBottomInset: false,
@@ -65,6 +53,18 @@ class _resultsState extends State<results> {
 
                 SizedBox(height: 50,),
 
+                if(details.isEmpty)...[
+                  Center(
+                    child: Text("Flight details could not be\nfound for the details\nyou've entered",style: TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'poppins',
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white
+                    ),textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+
                 Expanded(
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -75,7 +75,13 @@ class _resultsState extends State<results> {
                         padding: const EdgeInsets.fromLTRB(0,10,10,10),
                         child: GestureDetector(
                           onTap: (){
-                            Navigator.pushNamed(context, 'booking_confirm');
+                            print(seats);
+                            Navigator.pushNamed(context, 'booking_confirm', arguments: {
+                              'data': details[index],
+                              'date': date,
+                              'seats':seats,
+                              'user_id': user_id
+                            });
                           },
                           child: Card(
                             color: Color.fromRGBO(38, 38, 38, 1),
@@ -99,7 +105,7 @@ class _resultsState extends State<results> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            Text('${details[index][0]}',
+                                            Text('${details[index]['src']}',
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w700,
@@ -109,7 +115,7 @@ class _resultsState extends State<results> {
 
                                             SizedBox(height: 20,),
 
-                                            Text('${details[index][2]}',
+                                            Text('₹ ${(details[index]['totalPriceUsd']* 75).toStringAsFixed(0)}',
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w700,
@@ -125,7 +131,7 @@ class _resultsState extends State<results> {
                                           mainAxisAlignment: MainAxisAlignment.start,
 
                                           children: [
-                                            Text('${details[index][3]}',
+                                            Text('${details[index]['duration']}',
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w700,
@@ -143,7 +149,7 @@ class _resultsState extends State<results> {
                                         Column(
                                           crossAxisAlignment: CrossAxisAlignment.end,
                                           children: [
-                                            Text('${details[index][1]}',
+                                            Text('${details[index]['dest']}',
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w700,
@@ -153,7 +159,7 @@ class _resultsState extends State<results> {
 
                                             SizedBox(height: 20,),
 
-                                            Text('${details[index][4]}',
+                                            Text('${details[index]['airlineName']}',
                                               style: TextStyle(
                                                   fontFamily: 'montserrat',
                                                   fontWeight: FontWeight.w700,

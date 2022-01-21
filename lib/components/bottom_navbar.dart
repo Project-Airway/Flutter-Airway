@@ -26,7 +26,6 @@ class NavBar extends StatefulWidget {
   const NavBar({Key? key, required this.data}) : super(key: key);
 
   final Map data;
-
   @override
   _NavBarState createState() => _NavBarState();
 }
@@ -41,7 +40,7 @@ class _NavBarState extends State<NavBar> {
 
     children = [
       main_booking( data: widget.data),
-      Points(),
+      Points( data: widget.data),
       Transactions(data: widget.data),
       Account(data: widget.data)
 
