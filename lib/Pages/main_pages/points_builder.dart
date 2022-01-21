@@ -108,7 +108,6 @@ Future<List> get_tickets(String user_id) async {
       .get(Uri.parse('http://10.0.2.2:3001/booking/${user_id}/getTickets'));
   // print(response.body);
   List passData = json.decode(response.body);
-  print(passData);
   return passData;
 }
 

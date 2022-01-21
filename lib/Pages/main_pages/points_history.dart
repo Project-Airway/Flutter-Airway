@@ -71,66 +71,68 @@ class _UserState extends State<Points> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.data);
     return Scaffold(
+      backgroundColor: Color.fromRGBO(33, 33, 33, 1),
         body:
-            Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/bg-common-main.png'),
-                  fit: BoxFit.fitWidth,
+            SafeArea(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/bg-common-main.png'),
+                    fit: BoxFit.fitWidth,
+                  ),
                 ),
-              ),
-              // width: 400+10,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 20,),
-                  Image.asset('assets/logo2.png'),
-                   Container(
-                      child: Text(
-                        'Points Earned',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: "poppins"
+                // width: 400+10,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 20,),
+                    Image.asset('assets/logo2.png'),
+                     Container(
+                        child: Text(
+                          'Points Earned',
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: "poppins"
+                          ),
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
+                      ),
+                    SizedBox(height: 30),
+                    Container(
+                      height: 120,
+                      width: 125,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/leaf.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text("${widget.data['data']['reward_points']}",
+                        style: TextStyle(
+                            color: Color.fromRGBO(221, 195, 102, 1),
+                          fontFamily: "poppins",
+                          fontSize: 28
+                        ),),
                       ),
                     ),
-                  SizedBox(height: 30),
-                  Container(
-                    height: 120,
-                    width: 125,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/leaf.png'),
-                        fit: BoxFit.cover,
+                    Center(
+                      child: Text('Points History',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: "poppins",
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                    child: Center(
-                      child: Text("${widget.data['data']['reward_points']}",
-                      style: TextStyle(
-                          color: Color.fromRGBO(221, 195, 102, 1),
-                        fontFamily: "poppins",
-                        fontSize: 28
-                      ),),
-                    ),
-                  ),
-                  Center(
-                    child: Text('Points History',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: "poppins",
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  SizedBox( height: 250,child: points_history( data: widget.data))
-                ],
+                    SizedBox( height: 250,child: points_history( data: widget.data))
+                  ],
+                ),
               ),
             ),
         // bottomNavigationBar:bottom_bar()
