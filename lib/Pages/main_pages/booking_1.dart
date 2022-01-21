@@ -41,7 +41,7 @@ class _main_bookingState extends State<main_booking> {
               children: [
                 Image.asset('assets/logo2.png'),
                 SizedBox(height: 10,),
-                Text('Hey Adi,\nWhere to next ?',style: TextStyle(
+                Text('Hey\nWhere to next ?',style: TextStyle(
                   fontSize: 36,
                   fontFamily: 'poppins',
                   fontWeight: FontWeight.w700,
@@ -58,9 +58,6 @@ class _main_bookingState extends State<main_booking> {
                     ),
                   ),
                 )
-
-
-
               ],
             ),
           ),

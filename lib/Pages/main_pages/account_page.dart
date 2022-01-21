@@ -168,21 +168,31 @@ class _AccountState extends State<Account> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text('Privacy  Policy  ',
-                      style: TextStyle(
-                      color: Colors.white,
-                        fontSize: 13,fontFamily: 'poppins',
-                        fontWeight: FontWeight.w500,
-                      ),
+                      TextButton(
+                        onPressed:(){
+                          Navigator.pushNamed(context, 'PPTC');
+                        },
+                        child: Text('Privacy  Policy  ',
+                        style: TextStyle(
+                        color: Colors.white,
+                          fontSize: 13,fontFamily: 'poppins',
+                          fontWeight: FontWeight.w500,
+                        ),
+                        ),
                       ),
                       Icon(Icons.info_outline,
                       color: Colors.white,
                       ),
-                      Text('  Terms & Conditions',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13,fontFamily: 'poppins',
-                          fontWeight: FontWeight.w500,
+                      TextButton(
+                        onPressed: (){
+                          Navigator.pushNamed(context, 'PPTC');
+                        },
+                        child: Text('  Terms & Conditions',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,fontFamily: 'poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
                     ],

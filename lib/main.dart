@@ -19,6 +19,7 @@ import 'package:airway_flutter/Pages/main_pages/edit_acc.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 import 'package:airway_flutter/components/Transaction_Card.dart';
 import 'package:airway_flutter/components/Transactions_Builder.dart';
+import 'package:airway_flutter/Pages/main_pages/PP-TC.dart';
 
 void main() => runApp(MaterialApp(
   initialRoute: 'login',
@@ -45,6 +46,7 @@ void main() => runApp(MaterialApp(
     'transact_card':(context)=>TransactionDetails(),
     // 'trans_builder':(context)=>TransBuilder(),
     'success': (context) => Success(),
+    'PPTC':(context)=>PPTC(),
   },
 ));
 

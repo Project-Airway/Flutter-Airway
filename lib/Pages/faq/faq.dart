@@ -57,7 +57,7 @@ class _FAQState extends State<FAQ> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 10,),
-                  Text('Support@airway.com',
+                  Text('air.way.dsce@gmail.com',
                     style: TextStyle(
                       fontSize: 19.0,
                       fontWeight: FontWeight.w600,
