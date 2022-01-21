@@ -28,9 +28,9 @@ class user_onboard2 extends StatelessWidget {
                 children: [
                   SizedBox(width: 30),
                   Image.asset('assets/logo.png'),
-                  // ClipRect(
-                  //   child: Image.asset('assets/user_img1.png'),
-                  // )
+                  ClipRect(
+                    child: Image.asset('assets/user_img1.png'),
+                  )
                 ],
               ),
               SizedBox(height: 150),

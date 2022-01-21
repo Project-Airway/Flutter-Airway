@@ -1,6 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:airway_flutter/components/bottom_navbar.dart';
 
+
+class SourceValidator{
+  static String validator(String controller){
+    if(controller.isEmpty){
+      return 'Source is required';
+    }
+    return '';
+  }
+}
+
+class DestinationValidator{
+  static String validator(String controller){
+    if(controller.isEmpty){
+      return 'Destination is required';
+    }
+    return '';
+  }
+}
+
+
+
 class main_booking extends StatefulWidget {
   const main_booking({Key? key, required this.data}) : super(key: key);
 

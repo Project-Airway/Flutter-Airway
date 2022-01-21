@@ -209,7 +209,8 @@ class user_onboard3 extends StatelessWidget {
                                       if(!_formKey.currentState!.validate()){   //this will do the all the necessary validate
                                           return ;
                                       }
-                                      print(name);
+                                      // print(name);
+
                                       _formKey.currentState!.save();    //this will call the onsaved function
                                     },
                                 )

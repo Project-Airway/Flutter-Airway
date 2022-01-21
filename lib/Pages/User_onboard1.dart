@@ -31,16 +31,16 @@ class user_onboard1 extends StatelessWidget {
 
                   ],
                 ),
-                SizedBox(height: 150),
+                // SizedBox(height: 150),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        image: DecorationImage(
+                         image: DecorationImage(
                           image: AssetImage('assets/user_block1.png'),
-                          fit: BoxFit.fill
+                           fit: BoxFit.fill
                         )
                       ),
                       height: 350,

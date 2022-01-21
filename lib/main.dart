@@ -20,13 +20,13 @@ import 'package:airway_flutter/components/Transaction_Card.dart';
 import 'package:airway_flutter/components/Transactions_Builder.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'edit_account',
+  initialRoute: 'user_onboard3',
 
   routes: {
    // '/': (context) => loading(),
     'user_onboard1':(context) => user_onboard1(),
     'user_onboard2':(context) => user_onboard2(),
-    // 'user_onboard3':(context) => user_onboard3(),
+    'user_onboard3':(context) => user_onboard3(),
     'login':(context) => login(),
     'onboard3':(context) => onboard_3(),
     'user_onboardmain':(context) => user_onboardmain(),
