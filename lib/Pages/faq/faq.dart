@@ -14,12 +14,13 @@ class _FAQState extends State<FAQ> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(33, 33, 33, 1),
       body:Center(
         child:SafeArea(
           child:Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/6.jpeg'),
+                image: AssetImage('assets/bg-common-main2.png'),
                 fit:BoxFit.cover,
               ),
             ),
@@ -27,30 +28,30 @@ class _FAQState extends State<FAQ> {
             child: SingleChildScrollView(
               child:Column(
                 children: [
-                  SizedBox(height: 25.0),
-                  Text('Frequently Asked\nQuestions',
+                  SizedBox(height: 90.0),
+                  Text("FAQ's",
                     style: TextStyle(
-                      fontSize: 28.0,
+                      fontSize: 40.0,
                       fontWeight: FontWeight.w900,
-                      color:Colors.black,
+                      color:Colors.white,
                       letterSpacing: 2.0,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
-                  SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','Why was I not refunded my full amount when I cancelled my ticket?','The cancellation policy of the company states that cancellation of tickets has to occur at least 24 hours before the departure otherwise amount of money is deducted.'),
-                  SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','When can I redeem the points I have accumulated?','Users can redeem the accumulated points during the checkout and can avail discounts!.'),
-                  SizedBox(height: 20,),
-                  expansion('https://media.istockphoto.com/photos/white-paper-background-picture-id1040425512?b=1&k=20&m=1040425512&s=170667a&w=0&h=mo6rWtHjzwQCJuwcBjRBzPuSzvZ-iDWqpAHDDrXETOg=','Are other services like meal coupons , taxi services etc. provided by the company?','We do not provide any other services except that of booking of flights but stay tuned there is a lot yet to come ;) '),
-                  SizedBox(height: 10,),
-                  Text('Have something else on your mind ?\nContact us on',
+                  SizedBox(height: 100,),
+                  expansion('https://images.prismic.io/blackdiamond-web/119d93bb-f233-40fa-a8f6-176f0ff95524_F20_Pledge-Diamond_2880x1620.jpg?auto=compress,format&rect=77,135,2473,1391&w=2880&h=1620','What is the duration to access the lounge?','Passengers may enter the lounge only three hours prior to departure time and are permitted to spend three hours on a single transaction.'),
+                  SizedBox(height: 15,),
+                  expansion('https://images.prismic.io/blackdiamond-web/119d93bb-f233-40fa-a8f6-176f0ff95524_F20_Pledge-Diamond_2880x1620.jpg?auto=compress,format&rect=77,135,2473,1391&w=2880&h=1620','Why was I not refunded my full amount when I cancelled my ticket?','The cancellation policy of the company states that cancellation of tickets has to occur at least 24 hours before the departure otherwise amount of money is deducted.'),
+                  SizedBox(height: 15,),
+                  expansion('https://images.prismic.io/blackdiamond-web/119d93bb-f233-40fa-a8f6-176f0ff95524_F20_Pledge-Diamond_2880x1620.jpg?auto=compress,format&rect=77,135,2473,1391&w=2880&h=1620','When can I redeem the points I have accumulated?','Users can redeem the accumulated points during the checkout and can avail discounts!.'),
+                  SizedBox(height: 15,),
+                  expansion('https://images.prismic.io/blackdiamond-web/119d93bb-f233-40fa-a8f6-176f0ff95524_F20_Pledge-Diamond_2880x1620.jpg?auto=compress,format&rect=77,135,2473,1391&w=2880&h=1620','Are other services like meal coupons , taxi services etc. provided by the company?','We do not provide any other services except that of booking of flights but stay tuned there is a lot yet to come;) '),
+                  SizedBox(height: 30,),
+                  Text('Have something else on mind ?\nContact us on',
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 19.0,
                       fontWeight: FontWeight.w600,
-                      color:Colors.black,
+                      color:Colors.white,
                       letterSpacing: 2.0,
                     ),
                     textAlign: TextAlign.center,
@@ -58,27 +59,28 @@ class _FAQState extends State<FAQ> {
                   SizedBox(height: 10,),
                   Text('Support@airway.com',
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 19.0,
                       fontWeight: FontWeight.w600,
                       color:Colors.blue,
                       letterSpacing: 2.0,
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 10,),
                 ],
               ),
             ),
           ),
         ),
       ),
-      bottomNavigationBar: bottom_bar(),
+      // bottomNavigationBar: bottom_bar(),
     );
   }
   Container expansion(String img,String ques,String ans) {
     return Container(
-      //margin: EdgeInsets.symmetric(horizontal: 20),
+      // margin: EdgeInsets.symmetric(vertical: 20),
       child: ExpansionCard(
-        //backgroundColor: Colors.white70,
+        // backgroundColor: Colors.grey,
         background: Image.network(img),
         borderRadius: 20,
         title: Container(
@@ -86,8 +88,8 @@ class _FAQState extends State<FAQ> {
             padding: EdgeInsets.only(left: 0.0),
             child: Text(ques,
               style: TextStyle(
-                fontSize: 17,
-                color: Colors.black,
+                fontSize: 18,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -95,14 +97,14 @@ class _FAQState extends State<FAQ> {
           ),
         ),
         children: [
-          SizedBox(height: 20.0,),
+          SizedBox(height: 15.0,),
           Container(
             child: Padding(
-              padding: EdgeInsets.only(left: 10.0,right: 10.0),
+              padding: EdgeInsets.only(left: 10.0,right: 10.0,bottom: 20.0),
               child:Text(ans,
                 style: TextStyle(
                   fontSize: 17.0,
-                  color: Colors.black,
+                  color: Colors.white70,
                   fontWeight: FontWeight.w400,
                 ),
                 textAlign: TextAlign.center,

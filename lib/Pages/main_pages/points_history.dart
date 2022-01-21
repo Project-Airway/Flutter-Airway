@@ -81,14 +81,13 @@ class _UserState extends State<Points> {
                         style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.bold,
-                          letterSpacing: 4.0,
                           color: Colors.white,
                           fontFamily: "poppins"
                         ),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                   Container(
                     height: 100,
                     width: 100,

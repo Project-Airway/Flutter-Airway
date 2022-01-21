@@ -23,6 +23,7 @@ class _AccountState extends State<Account> {
     Fdata = widget.data['data'];
     print(Fdata);
     return Scaffold(
+      backgroundColor: Color.fromRGBO(33, 33, 33, 1),
       body: Center(
          child: SafeArea(
           child: Container(
@@ -119,7 +120,9 @@ class _AccountState extends State<Account> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        TextButton.icon(onPressed: () {}, icon: Icon(Icons.three_p_sharp,color: Colors.white,
+                        TextButton.icon(onPressed: () {
+                          Navigator.pushNamed(context, 'faq');
+                        }, icon: Icon(Icons.three_p_sharp,color: Colors.white,
                           size: 25.0,), label: Text('\t\t\t\t\t''Get Help ',
                           style: TextStyle(
                             fontSize: 20,fontFamily: 'poppins',

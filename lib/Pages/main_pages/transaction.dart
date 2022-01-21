@@ -28,40 +28,43 @@ class _TransactionsState extends State<Transactions> {
 
 
     return new Scaffold(
-      body:Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bg-common-main.png'),
-            fit:BoxFit.cover,
+      backgroundColor: Color.fromRGBO(33, 33, 33, 1),
+      body:SafeArea(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/bg-common-main.png'),
+              fit:BoxFit.cover,
+            ),
           ),
-        ),
-        width: double.infinity,
-        height: double.infinity,
-        padding:EdgeInsets.symmetric(horizontal: 15.0,vertical:0.0),
-          child:Column(
-            children: [
-              SizedBox(height: 10.0),
-              Image(image: AssetImage('assets/logo2.png')),
-              SizedBox(height: 50.0),
-              Container(
-                child: Center(
-                  child: Text('Transaction\nHistory',
-                    style: TextStyle(
-                      fontSize: 28.0,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w900,
-                      color:Colors.white,
-                      letterSpacing: 2.0,
+          width: double.infinity,
+          height: double.infinity,
+          padding:EdgeInsets.symmetric(horizontal: 15.0,vertical:0.0),
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 10.0),
+                Image(image: AssetImage('assets/logo2.png')),
+                SizedBox(height: 20.0),
+                Container(
+                  child: Center(
+                    child: Text('Transaction\nHistory',
+                      style: TextStyle(
+                        fontSize: 36.0,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w900,
+                        color:Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              TransBuilder(data: widget.data)
-              ],
+                SizedBox(height: 30,),
+                TransBuilder(data: widget.data)
+                ],
+            ),
           ),
-        ),
+      ),
     );
   }
 

@@ -26,12 +26,12 @@ class _onboard_3State extends State<onboard_3> {
     );
 
   }
+  int _flag =0;
 
 
 
   @override
   Widget build(BuildContext context) {
-
     final nameCont = TextEditingController();
     final emailCont = TextEditingController();
     final phoneNoCont = TextEditingController();
@@ -109,14 +109,33 @@ class _onboard_3State extends State<onboard_3> {
                               ),
                               textAlign: TextAlign.center,),
                             // SizedBox(height: 10,),
-                            Text('Fill these essential details\nandyou’re good to go',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'poppins',
-                                fontWeight: FontWeight.w500,
+
+                            if (_flag == 1) ...[
+                              Container(
+                                child: Text('Email already exists',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: 'poppins',
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.redAccent
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )
+                            ]
+
+                            else ...[
+                              Text('Fill these essential details\nandyou’re good to go',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'poppins',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
-                            ),
+                            ],
+                            SizedBox(height: 10,),
+
                             Form(child: Column(
                               children: [
                                 // _buildNameField(),
@@ -224,10 +243,20 @@ class _onboard_3State extends State<onboard_3> {
                                     // }
                                     // else {
                                     //   print('Valid Password');
+                                    if(data.containsKey('message')){
+                                      print('User already exists');
+
+                                      setState(() {
+                                        _flag = 1;
+                                      });
+
+                                    }
+                                    else{
+
                                       Navigator.pushReplacementNamed(context, 'bottom_bar', arguments: {
                                         "data" : data
                                       });
-                                    // }
+                                    }
 
 
                                   },
@@ -238,13 +267,15 @@ class _onboard_3State extends State<onboard_3> {
                               ],
                             ))
                           ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
+                        ),
 
+                      ],
+
+                    ),
+                  ),
+
+                ],
+              ),
             ],
           ),
 
