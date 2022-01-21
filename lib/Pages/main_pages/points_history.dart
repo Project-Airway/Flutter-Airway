@@ -71,6 +71,7 @@ class _UserState extends State<Points> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.data);
     return Scaffold(
         body:
             Container(
@@ -101,8 +102,8 @@ class _UserState extends State<Points> {
                     ),
                   SizedBox(height: 30),
                   Container(
-                    height: 100,
-                    width: 100,
+                    height: 120,
+                    width: 125,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/leaf.png'),
@@ -110,7 +111,7 @@ class _UserState extends State<Points> {
                       ),
                     ),
                     child: Center(
-                      child: Text("130",
+                      child: Text("${widget.data['data']['reward_points']}",
                       style: TextStyle(
                           color: Color.fromRGBO(221, 195, 102, 1),
                         fontFamily: "poppins",
@@ -128,7 +129,7 @@ class _UserState extends State<Points> {
                       ),
                     ),
                   ),
-                  points_history( data: widget.data)
+                  SizedBox( height: 250,child: points_history( data: widget.data))
                 ],
               ),
             ),
