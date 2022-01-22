@@ -72,7 +72,7 @@ class _TransactionsState extends State<Success> {
 
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
-                  child: Text('Cool', style: TextStyle(
+                  child: Text('Got It', style: TextStyle(
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
                     fontSize: 24,

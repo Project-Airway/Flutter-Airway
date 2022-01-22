@@ -33,12 +33,12 @@ class _TransactionsState extends State<Transactions> {
               children: [
                 SizedBox(height: 10.0),
                 Image(image: AssetImage('assets/logo2.png')),
-                SizedBox(height: 20.0),
+                SizedBox(height: 10.0),
                 Container(
                   child: Center(
                     child: Text('Transaction\nHistory',
                       style: TextStyle(
-                        fontSize: 36.0,
+                        fontSize: 32.0,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w900,
                         color:Colors.white,
@@ -47,7 +47,7 @@ class _TransactionsState extends State<Transactions> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 20,),
 
                 SingleChildScrollView(
                   child: SizedBox(

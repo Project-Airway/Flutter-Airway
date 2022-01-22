@@ -167,11 +167,8 @@ class _resultsState extends State<results> {
                                                   color: Color.fromRGBO(251, 251, 251, 1)
                                               ),textAlign: TextAlign.end,
                                             ),
-
                                           ],
                                         ),
-
-
                                       ],
                                     ),
                                   ],
@@ -184,9 +181,7 @@ class _resultsState extends State<results> {
                     },
                   ),
                 ),
-
                 SizedBox(height: 20,),
-
                 Center(
                   child: RaisedButton(onPressed: (){
                     Navigator.pop(context);
@@ -209,8 +204,6 @@ class _resultsState extends State<results> {
                     ),
                   ),
                 ),
-
-
               ],
             ),
           ),

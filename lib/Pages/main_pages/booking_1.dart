@@ -296,6 +296,9 @@ class _booking_formState extends State<booking_form> {
               child: Container(
                 padding:EdgeInsets.only(left:20),
                 child: TextFormField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   controller: sourceEditingController,
                   decoration:InputDecoration(
                     label: Text('eg. Bangalore',style: TextStyle(
@@ -330,6 +333,9 @@ class _booking_formState extends State<booking_form> {
               child: Container(
                 padding:EdgeInsets.only(left:20),
                 child: TextFormField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   controller: destEditingController,
                   decoration:InputDecoration(
                     label: Text('eg. Pune',style: TextStyle(
@@ -363,6 +369,9 @@ class _booking_formState extends State<booking_form> {
               child: Container(
                 padding:EdgeInsets.only(left:20),
                 child: TextFormField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   controller: countEditingController,
                   decoration:InputDecoration(
                     label: Text('eg. 3',style: TextStyle(
