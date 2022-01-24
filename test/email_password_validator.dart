@@ -1,12 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:airway_flutter/Pages/User_onboard3.dart';
 
 void main(){
+
+
   test('empty name test', (){
     var result = "";
     var returned = NameFieldValidator.validator(result);
     expect('Name is required', returned);
   });
+
 
   test('email text test', (){
     var result="";
@@ -36,5 +40,9 @@ void main(){
     var result="gautham@gmail.com";
     var returned = NameFieldValidator.validator(result);
     expect('gautham@gmail.com', result);
+  });
+
+  test('name test', (){
+    final name  = user_onboard3();
   });
 }

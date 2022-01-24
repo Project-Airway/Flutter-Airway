@@ -20,6 +20,28 @@ class DestinationValidator{
   }
 }
 
+class SourceValidatorAndDestinationValidator{
+  static String validator(String sourceController , String destinationController){
+    if(sourceController.toString() == destinationController.toString()){
+      return 'places cannot be same';
+    }
+    return '';
+  }
+}
+
+class selectedDateValidator{
+  static String validator(DateTime picked){
+
+    if(picked.isAtSameMomentAs(DateTime.now())){
+      return 'Please pick a date other than today';
+    }
+
+    if(picked.isBefore(DateTime.now())){
+      return 'Please pick a date from today';
+    }
+    return '';
+  }
+}
 
 
 class main_booking extends StatefulWidget {
