@@ -139,13 +139,15 @@ class _booking_formState extends State<booking_form> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          SizedBox(height: 20,),
-
-          Text('Enter your source',style: TextStyle(
+          Text('Enter your source',
+            key: Key("sourceField"),
+            style: TextStyle(
             fontFamily: 'poppins',
             fontWeight: FontWeight.w500,
             color: Colors.white,
             fontSize: 18,),),
+
+          SizedBox(height: 20,),
 
           Container(
             padding:EdgeInsets.only(top:10,right:0,left:0),
@@ -233,6 +235,7 @@ class _booking_formState extends State<booking_form> {
                       fontSize: 18,),),
 
                     RaisedButton(
+                      key: Key("Button"),
                       onPressed: () => _selectDate(context), // Refer step 3
                       child: Text(
                         'Select date',

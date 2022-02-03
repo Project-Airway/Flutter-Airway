@@ -4,6 +4,38 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+class NameFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Name is required';
+    }
+    return '';
+  }
+}
+
+class EmailFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Email is required';
+    }
+    return '';
+  }
+}
+
+class PhoneFieldValidator{
+  static String validator(String value){
+    if(value == null || value.isEmpty){
+      return 'Phone number is required';
+    }
+    if(value.length<10){
+      return 'Invalid Phone number';
+    }
+    return '';
+  }
+}
+
+
 void main()=>runApp(MaterialApp(
     home:Editprofile()
 ));

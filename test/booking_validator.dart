@@ -5,14 +5,16 @@ import 'package:airway_flutter/Pages/main_pages/booking_1.dart';
 
 void main(){
 
-
-
   group('unit tests related to source and destination booking screen', (){
 
     test('empty source test', (){
+
+      //arrange
       var result = "";
+      //act
       var actual = SourceValidator.validator(result);
-      expect('Source is required', actual);
+      //assert
+      expect(actual,'Source is required');
     });
 
     test('empty destination test', (){
