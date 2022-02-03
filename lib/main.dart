@@ -22,32 +22,29 @@ import 'package:airway_flutter/components/Transactions_Builder.dart';
 import 'package:airway_flutter/Pages/main_pages/PP-TC.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: 'login',
-
-  routes: {
-   // '/': (context) => loading(),
-    'user_onboard1':(context) => user_onboard1(),
-    'user_onboard2':(context) => user_onboard2(),
-    // 'user_onboard3':(context) => user_onboard3(),
-    'login':(context) => login(),
-    'onboard3':(context) => onboard_3(),
-    'user_onboardmain':(context) => user_onboardmain(),
-    // 'user_account' : (context) => Account(),
-    // 'points_history':(context) => Points(),
-    'edit_account':(context) => Editprofile(),
-    'faq':(context) => FAQ(),
-    // 'transactions':(context)=>Transactions(),
-    'reasons':(context)=>Reasons(),
-    // 'main_booking':(context)=>main_booking(),
-    'results':(context)=>results(),
-    'booking_confirm':(context)=>confirm_booking(),
-    'bottom_bar':(context) => bottom_bar(),
-    'edit_acc' : (context) => editInfo(),
-    'transact_card':(context)=>TransactionDetails(),
-    // 'trans_builder':(context)=>TransBuilder(),
-    'success': (context) => Success(),
-    'PPTC':(context)=>PPTC(),
-  },
-));
-
-    
+      initialRoute: 'user_onboard1',
+      routes: {
+        // '/': (context) => loading(),
+        'user_onboard1': (context) => user_onboard1(),
+        'user_onboard2': (context) => user_onboard2(),
+        // 'user_onboard3':(context) => user_onboard3(),
+        'login': (context) => login(),
+        'onboard3': (context) => onboard_3(),
+        'user_onboardmain': (context) => user_onboardmain(),
+        // 'user_account' : (context) => Account(),
+        // 'points_history':(context) => Points(),
+        'edit_account': (context) => Editprofile(),
+        'faq': (context) => FAQ(),
+        // 'transactions':(context)=>Transactions(),
+        'reasons': (context) => Reasons(),
+        // 'main_booking':(context)=>main_booking(),
+        'results': (context) => results(),
+        'booking_confirm': (context) => confirm_booking(),
+        'bottom_bar': (context) => bottom_bar(),
+        'edit_acc': (context) => editInfo(),
+        'transact_card': (context) => TransactionDetails(),
+        // 'trans_builder':(context)=>TransBuilder(),
+        'success': (context) => Success(),
+        'PPTC': (context) => PPTC(),
+      },
+    ));
