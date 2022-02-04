@@ -22,7 +22,7 @@ import 'package:airway_flutter/components/Transactions_Builder.dart';
 import 'package:airway_flutter/Pages/main_pages/PP-TC.dart';
 
 void main() => runApp(MaterialApp(
-      initialRoute: 'user_onboard2',
+      initialRoute: 'onboard3',
       routes: {
         // '/': (context) => loading(),
         'user_onboard1': (context) => user_onboard1(),
